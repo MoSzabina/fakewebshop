@@ -48,3 +48,41 @@ The main reason for creating the project is to gain practical experience by desi
 - View order history
 - View order details
 - Log out
+
+# Core Features
+## Product catalogue
+- Browse products
+- Browse products by category
+- View product details
+- Search products
+## Shopping cart
+- Add products to cart
+- Remove products from cart
+- Change product quantity
+- View cart contents
+- Calculate subtotal and total
+## Checkout & orders
+- Guest checkout
+- Customer checkout
+- Enter billing/shipping information
+- Review order before placing it
+- Place a fictional order
+-Display order confirmation
+- View order details
+## User accounts
+- Register
+- Log in / log out
+- View own order history (while logged in)
+## Administration
+- Admin login
+- Manage products (create, edit, delete)
+- Manage categories
+- Manage orders
+- Manage users
+- Manage stock/inventory
+## System features
+- Authentication
+- Authorization / role-based access
+- Form validation
+- Error handling
+- Responsive design
