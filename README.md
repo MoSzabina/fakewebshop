@@ -23,3 +23,28 @@ The main reason for creating the project is to gain practical experience by desi
 - **Testing & debugging** – testing functionality and identifying and resolving problems
 - **Problem solving** – researching and solving development challenges independently
 - **Controlled use of AI tools** – using AI for brainstorming, exploring ideas, researching unfamiliar concepts and troubleshooting, while independently reviewing, understanding and validating the results
+
+# User roles
+## Admin
+- Manage products
+- Manage categories
+- Manage users
+- Manage orders
+- Manage inventory
+- View basic sales and order statistics
+
+## Guest user
+- Browse products
+- View product details
+- Search and filter products
+- Browse categories
+- Add and remove products from the cart
+- Place fictional orders
+- Register an account
+- Log in
+
+## Registered user
+- All guest functionality
+- View order history
+- View order details
+- Log out
