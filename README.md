@@ -23,3 +23,88 @@ The main reason for creating the project is to gain practical experience by desi
 - **Testing & debugging** – testing functionality and identifying and resolving problems
 - **Problem solving** – researching and solving development challenges independently
 - **Controlled use of AI tools** – using AI for brainstorming, exploring ideas, researching unfamiliar concepts and troubleshooting, while independently reviewing, understanding and validating the results
+
+# User roles
+## Admin
+- Manage products
+- Manage categories
+- Manage users
+- Manage orders
+- Manage inventory
+- View basic sales and order statistics
+
+## Guest user
+- Browse products
+- View product details
+- Search and filter products
+- Browse categories
+- Add and remove products from the cart
+- Place fictional orders
+- Register an account
+- Log in
+
+## Registered user
+- All guest functionality
+- View order history
+- View order details
+- Log out
+
+# Core Features
+## Product catalogue
+- Browse products
+- Browse products by category
+- View product details
+- Search products
+## Shopping cart
+- Add products to cart
+- Remove products from cart
+- Change product quantity
+- View cart contents
+- Calculate subtotal and total
+## Checkout & orders
+- Guest checkout
+- Customer checkout
+- Enter billing/shipping information
+- Review order before placing it
+- Place a fictional order
+-Display order confirmation
+- View order details
+## User accounts
+- Register
+- Log in / log out
+- View own order history (while logged in)
+## Administration
+- Admin login
+- Manage products (create, edit, delete)
+- Manage categories
+- Manage orders
+- Manage users
+- Manage stock/inventory
+## System features
+- Authentication
+- Authorization / role-based access
+- Form validation
+- Error handling
+- Responsive design
+
+# Technologies
+## Backend
+- PHP
+- Laravel
+- Eloquent ORM
+
+##Database
+- MySQL
+- SQL
+
+## Frontend
+- Blade
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+
+## Development & design
+- GitHub
+- Figma
+- Canva
