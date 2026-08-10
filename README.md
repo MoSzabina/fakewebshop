@@ -86,3 +86,25 @@ The main reason for creating the project is to gain practical experience by desi
 - Form validation
 - Error handling
 - Responsive design
+
+# Technologies
+## Backend
+- PHP
+- Laravel
+- Eloquent ORM
+
+##Database
+- MySQL
+- SQL
+
+## Frontend
+- Blade
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+
+## Development & design
+- GitHub
+- Figma
+- Canva
