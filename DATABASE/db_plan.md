@@ -15,8 +15,7 @@ The system allows both registered customers and guests to browse products, manag
 - email VARCHAR(255)
 - password VARCHAR(255)
 - shipping VARCHAR(255)
-- role VARCHAR(20)
-
+- role INT
 
 ## Category
 
@@ -51,7 +50,7 @@ The system allows both registered customers and guests to browse products, manag
 ## Order
 
 - id INT
-- user_id INT NULL
+- user_id INT
 - customer_name VARCHAR(100)
 - customer_email VARCHAR(255)
 - shipping_user VARCHAR(255) 
@@ -67,6 +66,14 @@ The system allows both registered customers and guests to browse products, manag
 - quantity INT
 - unit_price DECIMAL(10,2)
 
+## CreditTransaction
+
+- id INT
+- user_id INT
+- amount INT
+- type VARCHAR(20)
+- description VARCHAR(255)
+
 ```mermaid
 erDiagram
     USER {
@@ -75,7 +82,7 @@ erDiagram
         VARCHAR email
         VARCHAR password
         VARCHAR shipping
-        VARCHAR role
+        INT role
     }
 
     CATEGORY {
@@ -123,8 +130,17 @@ erDiagram
         DECIMAL unit_price
     }
 
+    CREDIT_TRANSACTION {
+        INT id PK
+        INT user_id FK
+        INT amount
+        VARCHAR type
+        VARCHAR description
+    }
+
     USER ||--o| CART : has
     USER ||--o{ ORDER : places
+    USER ||--o{ CREDIT_TRANSACTION : has
 
     CATEGORY ||--o{ PRODUCT : contains
 
