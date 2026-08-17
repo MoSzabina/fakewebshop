@@ -39,7 +39,6 @@ The main reason for creating the project is to gain practical experience by desi
 - Search and filter products
 - Browse categories
 - Add and remove products from the cart
-- Place fictional orders
 - Register an account
 - Log in
 
@@ -62,7 +61,7 @@ The main reason for creating the project is to gain practical experience by desi
 - View cart contents
 - Calculate subtotal and total
 ## Checkout & orders
-- Guest checkout
+- Guest checkout -> Register
 - Customer checkout
 - Enter billing/shipping information
 - Review order before placing it
@@ -93,7 +92,7 @@ The main reason for creating the project is to gain practical experience by desi
 - Laravel
 - Eloquent ORM
 
-##Database
+## Database
 - MySQL
 - SQL
 
@@ -107,4 +106,3 @@ The main reason for creating the project is to gain practical experience by desi
 ## Development & design
 - GitHub
 - Figma
-- Canva
