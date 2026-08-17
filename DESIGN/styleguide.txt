@@ -1,0 +1,51 @@
+https://www.figma.com/make/unk6n2UGKPeixZsIflsq8z/One-Page-Visual-Style-Guide?t=d22oGmfdy8av8PdF-20&fullscreen=1
+
+Colors
+#1C1917 Ink 
+#6B6460 Ink Mid 
+#6B7C65 Sage 
+#E8EDE7 Sage Light 
+#EDE8DF Parchment 
+#FAF8F5 White
+
+Typography Font: Inter (Google Fonts)
+
+Style	Size	Weight
+Display	52px	300 / 700
+Heading 1	36px	600
+Heading 2	24px	600
+Heading 3	18px	500
+Body	15px	400
+Small / Label	12px	500
+Line height: 1.65–1.72 for body, 1.08 for display headings Letter spacing: −0.03em on large headings, 0.1em on uppercase labels
+
+Buttons
+
+Primary — bg #1C1917, text #FAF8F5, hover bg #333333
+Secondary — bg #6B7C65, text #FAF8F5, hover bg #5A6955
+Outline — border 1.5px #1C1917, transparent bg, hover fills ink
+Ghost — border 1.5px #DDD8D0, text #6B6460
+Disabled — bg #EDE8DF, text #DDD8D0, border #DDD8D0
+Border radius: 3px · Padding: 10px 22px · Font size: 13px / weight 500
+
+Links
+
+Default — #1C1917, underline, offset 3px, thickness 1px
+Sage — #6B7C65, underline
+Bold underline — #1C1917, 1.5px bottom border, no text-decoration
+Muted — #6B6460, dotted bottom border
+Arrow — #1C1917, weight 500, no underline, with →
+Form inputs
+
+Border: 1.5px solid #DDD8D0, border-radius 3px
+Focus border: #1C1917
+Background: #FAF8F5
+Error border: #FCA5A5, background #FEF2F2, error text #B91C1C
+Label: 12px / weight 500 / #1C1917
+Placeholder: #6B6460
+Checkbox active fill: #6B7C65 (Sage)
+Cards
+
+Default — bg #FAF8F5, border 1px #DDD8D0, radius 4px, hover shadow 0 4px 20px rgba(28,25,23,0.09)
+Dark — bg #1C1917, text #FAF8F5
+Tinted — bg #E8EDE7, border 1px rgba(107,124,101,0.18)
