@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html>
+<style>
+    div {
+        width: 500px;
+        align-items: center;
+    }
+
+    form {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    label {
+        display: block;
+    }
+
+    input[type=text],
+    select {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th,
+    td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<body>
+    <div>
+        <h2> Product seeder generator</h2>
+    </div>
+    <div>
+
+        <form>
+
+            <label> Category</label>
+            <select id="category">
+                <option value="$geek->id">Geek</option>
+                <option value="$clothing->id">Clothing</option>
+                <option value="$feelings->id">Feelings</option>
+                <option value="$pets->id">Pets</option>
+                <option value="$electronics->id">Electronics</option>
+                <option value="$luxury->id">Luxury</option>
+            </select><br>
+
+            <label>Name:</label>
+            <input type="text" id="name"><br>
+
+            <label>Price</label>
+            <input type="number" id="price"><br>
+
+            <label>Stock:</label>
+            <input type="number" id="stock"><br>
+
+            <label>Description:</label>
+            <textarea id="description"></textarea><br>
+
+            <button type="submit">Save</button>
+
+        </form>
+
+    </div>
+    <div>
+        <h2>Products</h2>
+
+        <div></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            <tbody id="productList">
+            </tbody>
+        </table>
+
+        <button id="download">Download txt</button>
+    </div>
+
+    <script>
+        const products = [];
+
+        const form = document.querySelector("form");
+        const productList = document.getElementById("productList");
+
+        form.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const category = document.getElementById("category").value;
+
+            let categoryName;
+
+            switch (category) {
+                case "$geek->id":
+                    categoryName = "Geek";
+                    break;
+
+                case "$clothing->id":
+                    categoryName = "Clothing";
+                    break;
+
+                case "$feelings->id":
+                    categoryName = "Feelings";
+                    break;
+
+                case "$pets->id":
+                    categoryName = "Pets";
+                    break;
+
+                case "$electronics->id":
+                    categoryName = "Electronics";
+                    break;
+
+                case "$luxury->id":
+                    categoryName = "Luxury";
+                    break;
+            }
+
+            const name = document.getElementById("name").value;
+            const price = document.getElementById("price").value;
+            const stock = document.getElementById("stock").value;
+            const description = document.getElementById("description").value;
+
+            const product = {
+                category,
+                name,
+                price,
+                stock,
+                description
+            };
+
+            products.push(product);
+
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+        <td>${categoryName}</td>
+        <td>${name}</td>
+        <td>${price}</td>
+        <td>${stock}</td>
+        <td>${description}</td>
+    `;
+
+            productList.appendChild(row);
+
+            form.reset();
+
+            document.getElementById("name").focus();
+
+        });
+
+        const downloadButton = document.getElementById("download");
+
+        downloadButton.addEventListener("click", function () {
+
+            let output = "";
+
+            products.forEach(function (product) {
+
+                output += `Product::create([
+    'category_id' => ${product.category},
+    'name' => '${product.name}',
+    'price' => ${product.price},
+    'stock' => ${product.stock},
+    'description' => '${product.description}',
+    'image' => 'placeholder.jpg',
+]);
+
+`;
+
+            });
+
+            const blob = new Blob([output], {
+                type: "text/plain"
+            });
+
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "products.txt";
+
+            a.click();
+
+            URL.revokeObjectURL(url);
+        });
+
+    </script>
+
+</body>
+
+</html>
