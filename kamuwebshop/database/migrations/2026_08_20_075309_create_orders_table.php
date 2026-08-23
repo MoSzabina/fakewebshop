@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->string('status', 30); //enum
             $table->decimal('totalprice');
-            $table->timestamp('created_at');
             $table->string('shipping');
+            $table->timestamps();
         });
     }
 
