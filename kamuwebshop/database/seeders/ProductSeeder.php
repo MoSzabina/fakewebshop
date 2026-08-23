@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
         $clothing = Category::where('name', 'Clothing')->first();
         $feelings = Category::where('name', 'Feelings')->first();
         $geek = Category::where('name', 'Geek')->first();
-        $pet = Category::where('name', 'Pets')->first();
+        $pets = Category::where('name', 'Pets')->first();
         $electronics = Category::where('name', 'Electronics')->first();
         $luxury = Category::where('name', 'Luxury')->first();
 
