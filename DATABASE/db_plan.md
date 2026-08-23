@@ -15,7 +15,7 @@ The system allows both registered customers and guests to browse products, manag
 - email VARCHAR(255)
 - password VARCHAR(255)
 - shipping VARCHAR(255)
-- role INT
+- is_admin BOOLEAN (DEFAULT: FALSE)
 
 ## Category
 
@@ -72,7 +72,6 @@ The system allows both registered customers and guests to browse products, manag
 - user_id INT
 - amount INT
 - type VARCHAR(20)
-- description VARCHAR(255)
 
 ```mermaid
 erDiagram
@@ -82,7 +81,7 @@ erDiagram
         VARCHAR email
         VARCHAR password
         VARCHAR shipping
-        INT role
+        BOOLEAN is_admin
     }
 
     CATEGORY {
@@ -135,7 +134,6 @@ erDiagram
         INT user_id FK
         INT amount
         VARCHAR type
-        VARCHAR description
     }
 
     USER ||--o| CART : has
