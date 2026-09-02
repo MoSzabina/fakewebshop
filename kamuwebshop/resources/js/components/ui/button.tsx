@@ -5,28 +5,37 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-[3px] text-[13px] font-medium tracking-[0.01em] px-[22px] py-[10px] cursor-pointer transition-all duration-150 outline-none disabled:cursor-not-allowed disabled:pointer-events-none",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
-        outline:
-          "border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
+          "bg-[#1C1917] text-[#FAF8F5] border-0 hover:bg-[#333]",
+        
         secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-[#6B7C65] text-[#FAF8F5] border-0 hover:bg-[#5A6955]",
+
+        outline:
+          "bg-transparent text-[#1C1917] border-[1.5px] border-[#1C1917] hover:bg-[#1C1917] hover:text-[#FAF8F5]",
+
+        muted:
+          "bg-transparent text-[#6B6460] border-[1.5px] border-[#DDD8D0] hover:text-[#1C1917] hover:border-[#6B6460]",
+
+        link:
+          "bg-transparent text-[#1C1917] border-0 underline underline-offset-[3px] px-0 py-0 hover:no-underline",
+
+        destructive:
+          "bg-[#1C1917] text-white border-0 hover:bg-destructive/90",
       },
+
       size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 rounded-md px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        default: "",
+        sm: "px-[16px] py-[8px] text-[12px]",
+        lg: "px-[26px] py-[12px] text-[14px]",
+        icon: "size-9 px-0 py-0",
       },
     },
+
     defaultVariants: {
       variant: "default",
       size: "default",
