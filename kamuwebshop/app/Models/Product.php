@@ -3,11 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
     public $timestamps = false;
     
+    protected static function booted(): void
+        {
+            static::creating(function (Product $product) {
+                $product->slug = Str::slug($product->name);
+            });
+        }
+
     protected $fillable = [
         'category_id',
         'name',
