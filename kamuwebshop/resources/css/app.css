@@ -44,7 +44,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--color-white);
+    background-color: var(--color-parchment);
     color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
 }
@@ -83,6 +83,10 @@ p {
 
 section {
     margin-bottom: var(--section-spacing);
+}
+
+section:last-of-type {
+    margin-bottom: 0;
 }
 
 table {

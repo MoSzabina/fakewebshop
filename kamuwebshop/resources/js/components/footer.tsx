@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react';
 export function Footer() {
     return (
         <footer className="border-t border-[#DDD8D0] bg-[#EDE8DF]">
-            <div className="mx-auto w-full max-w-[1040px] px-8 py-10">
+            <div className="mx-auto w-full max-w-[1040px] px-8 pt-8">
 
                 <div className="grid grid-cols-2 gap-8 text-sm">
                     {/* Left */}
