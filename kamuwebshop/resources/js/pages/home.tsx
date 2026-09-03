@@ -1,7 +1,4 @@
 import { Head } from '@inertiajs/react';
-
-import { AppHeader } from '@/components/app-header';
-import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,7 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Separator } from '@/components/ui/separator';
 
-export default function Login() {
+
+export default function Home() {
     return (
         <>
             <Head title="Meridian Test" />
@@ -17,7 +15,7 @@ export default function Login() {
 
 
 
-            <main className="mx-auto w-full max-w-[1040px] px-8 py-16">
+            <div className="py-16">
                 <div className="space-y-[72px]">
 
                     {/* Typography */}
@@ -192,7 +190,7 @@ export default function Login() {
                     </section>
 
                 </div>
-            </main>
+            </div>
 
 
         </>
