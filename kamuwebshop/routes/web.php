@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 // Public pages
 Route::inertia('/', 'home')->name('home');
 
+Route::inertia('/about', 'about')->name('about');
+
 Route::inertia('/auth', 'auth')->name('auth');
 
 Route::inertia('/products', 'products')->name('products');
