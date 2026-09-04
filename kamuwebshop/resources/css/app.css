@@ -27,7 +27,7 @@
 
     --container-width: 1040px;
     --page-padding: 32px;
-    --section-spacing: 72px;
+    --section-spacing: 48px;
 
     --radius: 4px;
 }
@@ -44,7 +44,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--color-parchment);
+    background-color: var(--color-white);
     color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
 }
@@ -57,7 +57,7 @@ h1 {
 
 h2 {
     font-size: var(--font-size-h2);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-bold);
     color: var(--color-ink);
 }
 
