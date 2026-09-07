@@ -81,7 +81,7 @@ class ProductSeeder extends Seeder
         'price' => 800,
         'stock' => 10,
         'description' => 'Have the latest phone 2 years before everyone',
-        'image' => 'placeholder.jpg',
+        'image' => 'images/products/geek/iphone-78.jpg',
     ]);
 
     Product::create([
@@ -162,7 +162,7 @@ class ProductSeeder extends Seeder
         'price' => 349,
         'stock' => 300,
         'description' => 'Basically a normal printer',
-        'image' => 'placeholder.jpg',
+        'image' => 'images/products/electronics/self-destructing-printer.jpg',
     ]);
 
     Product::create([
