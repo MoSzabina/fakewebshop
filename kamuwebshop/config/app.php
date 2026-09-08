@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'fakewebshop'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,9 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'hu'),
+    'locale' => env('APP_LOCALE', 'en'),
+
+    'available_locales' => env('APP_AVAILABLE_LOCALES', 'en,hu'),
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 

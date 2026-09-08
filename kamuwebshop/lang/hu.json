@@ -270,5 +270,12 @@
     "Yes": "Igen",
     "You are receiving this email because we received a password reset request for your account.": "Azért kapja ezt az üzenetet, mert a fiókjára jelszó helyreállítási kérés érkezett.",
     "You left the team \":name\"": "You left the team \":name\"",
-    "You've been invited to join :teamName": "You've been invited to join :teamName"
+    "You've been invited to join :teamName": "You've been invited to join :teamName",
+    "Products": "Termékek",
+    "Credits": "Kreditek",
+    "Dashboard": "Vezérlőpult",
+    "Profile": "Profil",
+    "Cart": "Kosár",
+    "Menu": "Menü",
+    "Close menu": "Menü bezárása"
 }

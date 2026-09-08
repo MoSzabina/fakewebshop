@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LocaleController;
+
+Route::post('/locale', [LocaleController::class, 'change'])->name('locale.change');
 
 // Public pages
 Route::inertia('/', 'home')->name('home');
