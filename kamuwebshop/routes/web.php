@@ -1,15 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 // Public pages
 Route::inertia('/', 'home')->name('home');
+
+Route::inertia('/about', 'about')->name('about');
 
 Route::inertia('/auth', 'auth')->name('auth');
 
 Route::inertia('/products', 'products')->name('products');
 
-Route::inertia('/products/{slug}', 'product')->name('product');
+Route::get('/products', [ProductController::class, 'index'])
+    ->name('products');
 
 Route::inertia('/cart', 'cart')->name('cart');
 

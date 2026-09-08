@@ -1,198 +1,93 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Separator } from '@/components/ui/separator';
-
+import { SectionLabel } from '@/components/section-label';
 
 export default function Home() {
     return (
         <>
-            <Head title="Meridian Test" />
+            <Head title="kamuwebshop" />
 
+            <section className="mx-auto max-w-[1040px] px-8 py-[72px]">
+                <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1fr_1fr] md:gap-16">
+                    <div>
+                        <h1>Szeretsz shoppingolni?</h1>
+                        <h3 className="mb-4">Túlságosan is?</h3>
 
-
-
-            <div className="py-16">
-                <div className="space-y-[72px]">
-
-                    {/* Typography */}
-                    <section>
-                        <h1>Meridian Design System</h1>
-                        <p className="mt-3">
-                            Tesztoldal a globális stílusok és komponensek
-                            ellenőrzéséhez.
+                        <p>
+                            Nem bírod ki, hogy ne rendelj? Akkor jó helyen jársz. Itt valódi shopping élmény vár, valódi pénzköltés nélkül. Nézelődj, rakd a kosárba, rendeld meg bűntudat nélkül!
                         </p>
+                    </div>
 
-                        <h2 className="mt-10">Heading 2</h2>
-                        <h3 className="mt-6">Heading 3</h3>
-                    </section>
+                    <div className="flex flex-col gap-4 sm:flex-row">
+                        <Button variant="secondary" asChild>
+                            <Link href="/products">
+                                Irány a shop!
+                            </Link>
+                        </Button>
 
-                    <Separator />
-
-                    {/* Colors */}
-                    <section>
-                        <h2>Színek</h2>
-
-                        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
-                            <div className="h-24 rounded-[4px] bg-[#1C1917]" />
-                            <div className="h-24 rounded-[4px] bg-[#6B6460]" />
-                            <div className="h-24 rounded-[4px] bg-[#6B7C65]" />
-                            <div className="h-24 rounded-[4px] bg-[#E8EDE7]" />
-                            <div className="h-24 rounded-[4px] bg-[#EDE8DF]" />
-                            <div className="h-24 rounded-[4px] border border-[#DDD8D0] bg-[#FAF8F5]" />
-                        </div>
-                    </section>
-
-                    {/* Buttons */}
-                    <section>
-                        <h2>Gombok</h2>
-
-                        <div className="mt-6 flex flex-wrap gap-4">
-                            <Button>Default</Button>
-                            <Button variant="secondary">Secondary</Button>
-                            <Button variant="outline">Outline</Button>
-                            <Button variant="muted">Muted</Button>
-                            <Button variant="link">Link</Button>
-                        </div>
-                    </section>
-
-                    {/* Forms */}
-                    <section>
-                        <h2>Form elemek</h2>
-
-                        <div className="mt-6 max-w-md space-y-6">
-                            <div className="space-y-2">
-                                <Label htmlFor="test-email">Email</Label>
-                                <Input
-                                    id="test-email"
-                                    type="email"
-                                    placeholder="email@example.com"
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="test-password">
-                                    Jelszó
-                                </Label>
-                                <Input
-                                    id="test-password"
-                                    type="password"
-                                    placeholder="••••••••"
-                                />
-                            </div>
-
-                            <div className="flex items-center space-x-3">
-                                <Checkbox
-                                    id="remember"
-                                    name="remember"
-                                    tabIndex={3}
-                                />
-                                <Label htmlFor="remember">Remember me</Label>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Badges */}
-                    <section>
-                        <h2>Badge-ek</h2>
-
-                        <div className="mt-6 flex flex-wrap gap-3">
-                            <Badge>Default</Badge>
-                            <Badge variant="secondary">
-                                Secondary
-                            </Badge>
-                            <Badge variant="outline">
-                                Outline
-                            </Badge>
-                        </div>
-                    </section>
-
-                    {/* Product-like cards */}
-                    <section>
-                        <h2>Kártya jellegű elemek</h2>
-
-                        <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                            <div className="overflow-hidden rounded-[4px] border border-[#DDD8D0] bg-[#FAF8F5]">
-                                <div className="h-40 bg-[#E8EDE7]" />
-
-                                <div className="p-5">
-                                    <div className="text-[11px] font-medium tracking-[0.08em] text-[#6B7C65]">
-                                        FEELINGS
-                                    </div>
-
-                                    <h3 className="mt-2">
-                                        Deja Vu
-                                    </h3>
-
-                                    <p className="mt-2">
-                                        Refresh this page.
-                                    </p>
-
-                                    <div className="mt-4 text-sm text-[#6B6460]">
-                                        4 990 Ft
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="overflow-hidden rounded-[4px] border border-[#DDD8D0] bg-[#FAF8F5]">
-                                <div className="h-40 bg-[#E8EDE7]" />
-
-                                <div className="p-5">
-                                    <div className="text-[11px] font-medium tracking-[0.08em] text-[#6B7C65]">
-                                        ELECTRONICS
-                                    </div>
-
-                                    <h3 className="mt-2">
-                                        Unshaver
-                                    </h3>
-
-                                    <p className="mt-2">
-                                        Be unique. Everybody shaves.
-                                    </p>
-
-                                    <div className="mt-4 text-sm text-[#6B6460]">
-                                        9 990 Ft
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Table */}
-                    <section>
-                        <h2>Táblázat</h2>
-
-                        <table className="mt-6">
-                            <thead>
-                                <tr>
-                                    <th>Termék</th>
-                                    <th>Kategória</th>
-                                    <th>Ár</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>Unshaver</td>
-                                    <td>Electronics</td>
-                                    <td>9 990 Ft</td>
-                                </tr>
-                                <tr>
-                                    <td>Deja Vu</td>
-                                    <td>Feelings</td>
-                                    <td>4 990 Ft</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </section>
-
+                        <Button variant="outline" asChild>
+                            <Link href="/about">
+                                Tudj meg többet...
+                            </Link>
+                        </Button>
+                    </div>
                 </div>
-            </div>
+            </section>
 
+            <section>
+                <SectionLabel>Mi ez az egész?</SectionLabel>
+                <div className="mb-5 rounded-[4px] bg-[var(--color-parchment)] p-10">
+                    <div className="mb-5 text-[11px] font-medium tracking-[0.12em] text-[var(--color-ink-mid)]">
+                        PORTFOLIO PROJECT
+                    </div>
 
+                    <div className="mb-2 text-[52px] font-light leading-[1.08] tracking-[-0.03em] text-[var(--color-ink)]">
+                        Egy webshop,
+                    </div>
+
+                    <div className="mb-7 text-[52px] font-bold leading-[1.08] tracking-[-0.03em] text-[var(--color-ink)]">
+                        ami valójában nem webshop.
+                    </div>
+
+                    <p className="max-w-[520px]">
+                        A webshop különlegessége, hogy itt nem kell valódi pénzt költened:
+                        nézelődhetsz, kosárba tehetsz mindent, amit csak szeretnél, és még a
+                        rendelést is leadhatod — csak éppen semmit nem szállítunk ki. 😄
+                    </p>
+
+                    <div className="my-8 border-b border-[var(--color-rule)]" />
+
+                    <p className="mb-5 max-w-[520px]">
+                        Ezt a projektet a portfólióm részeként készítettem, hogy egy teljes
+                        webshopélményen keresztül mutassam be a következő technológiák
+                        használatát:
+                    </p>
+
+                    <ul className="mb-5 list-disc pl-5 text-[15px] leading-[1.72] text-[var(--color-ink)]">
+                        <li>Laravel</li>
+                        <li>React</li>
+                        <li>TypeScript</li>
+                        <li>Inertia.js</li>
+                        <li>Tailwind CSS</li>
+                        <li>Eloquent</li>
+                    </ul>
+
+                    <div className="my-8 border-b border-[var(--color-rule)]" />
+
+                    <p className="mb-5 max-w-[520px]">
+                        A fejlesztés során a teljes folyamatot végigvezettem a tervezéstől a kész alkalmazásig:
+                    </p>
+
+                    <ul className="mb-5 list-disc pl-5 text-[15px] leading-[1.72] text-[var(--color-ink)]">
+                        <li>projekttervezés és feladatkezelés Kanban táblával</li>
+                        <li>UI/UX és vizuális tervezés Figma segítségével</li>
+                        <li>verziókezelés GitHubon</li>
+                        <li>adatbázis-tervezés és implementáció</li>
+                        <li>frontend és backend fejlesztés</li>
+                        <li>dokumentáció</li>
+                    </ul>
+                </div>
+            </section>
         </>
     );
 }
