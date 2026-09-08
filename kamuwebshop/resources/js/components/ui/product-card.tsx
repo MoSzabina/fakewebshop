@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react'
+import { ShoppingCart } from 'lucide-react'
 
 interface ProductCardProps {
   slug: string
@@ -16,23 +17,22 @@ function ProductCard({
   image,
 }: ProductCardProps) {
   return (
-    <Link
-      href={`/products/${slug}`}
-      className="block overflow-hidden rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] transition-[box-shadow] duration-150 hover:shadow-[0_4px_20px_rgba(28,25,23,0.09)]"
-    >
-      <div className="flex h-[160px] items-center justify-center bg-[var(--color-sage-light)]">
-        {image ? (
-          <img
-            src={image}
-            alt={name}
-            className="h-full w-full object-cover"
-          />
-        ) : (
-          <span className="text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
-            PRODUCT IMAGE
-          </span>
-        )}
-      </div>
+    <div className="overflow-hidden rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] transition-[box-shadow] duration-150 hover:shadow-[0_4px_20px_rgba(28,25,23,0.09)]">
+      <Link href={`/products/${slug}`} className="block">
+        <div className="flex items-center justify-center bg-[var(--color-sage-light)]">
+          {image ? (
+            <img
+              src={image}
+              alt={name}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <span className="text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
+              PRODUCT IMAGE
+            </span>
+          )}
+        </div>
+      </Link>
 
       <div className="px-[20px] py-[18px]">
         <div className="mb-[6px] text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
@@ -43,11 +43,20 @@ function ProductCard({
           {name}
         </div>
 
-        <div className="text-[14px] text-[var(--color-ink-mid)]">
-          {price}
+        <div className="flex items-center justify-between">
+          <div className="text-[14px] text-[var(--color-ink-mid)]">
+            {price}
+          </div>
+
+          <button
+            type="button"
+            className="flex size-8 items-center justify-center rounded-[3px] border border-[var(--color-rule)] text-[18px] font-light text-[var(--color-ink)] transition-colors hover:bg-[var(--color-sage-light)]"
+          >
+            <ShoppingCart size={16} />
+          </button>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 
