@@ -1,6 +1,8 @@
 import TextLink from '@/components/text-link';
+import { useTranslations } from '@/hooks/useTranslation';
 
 export function Footer() {
+    const { __ } = useTranslations();
     return (
         <footer className="border-t border-[var(--color-rule)] bg-[var(--color-parchment)]">
             <div className="mx-auto w-full max-w-[1040px] px-8 pt-8">
@@ -9,7 +11,7 @@ export function Footer() {
                     {/* Left */}
                     <div className="flex flex-col gap-1">
                         <span className="mb-1 font-medium text-[var(--color-ink)]">
-                            Kapcsolat
+                            {__('Contact')}
                         </span>
 
                         <a
@@ -32,11 +34,11 @@ export function Footer() {
                     {/* Right */}
                     <div className="flex flex-col items-end gap-1">
                         <TextLink href="/about" variant="muted">
-                            Tudj meg többet
+                           {__('Learn more')}
                         </TextLink>
 
                         <TextLink href="/privacy" variant="muted">
-                            Adatvédelem
+                           {__('Privacy Policy')}
                         </TextLink>
                     </div>
                 </div>
@@ -44,7 +46,7 @@ export function Footer() {
                 <span className="my-8 block h-px bg-[var(--color-rule)]" />
 
                 <div className="flex justify-end text-xs text-[var(--color-ink-mid)]">
-                    © 2026 kamuwebshop — mutiba készült.
+                    © 2026 fakewebshop
                 </div>
 
             </div>
