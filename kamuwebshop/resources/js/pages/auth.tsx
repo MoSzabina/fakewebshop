@@ -4,8 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import PasswordInput from '@/components/password-input';
 import { useForm } from '@inertiajs/react';
+import { useTranslations } from '@/hooks/useTranslation';
 
 export default function Auth() {
+    const { __ } = useTranslations();
+
     const loginForm = useForm({
         username: '',
         password: '',
@@ -22,9 +25,8 @@ export default function Auth() {
         <section className="py-10">
             <div className="mx-auto grid max-w-[1040px] grid-cols-1 overflow-hidden rounded-[4px] bg-[var(--color-sage)] md:grid-cols-2">
 
-                {/* Bejelentkezés */}
                 <div className="p-8 md:p-10">
-                    <SectionLabel>Bejelentkezés</SectionLabel>
+                    <SectionLabel>{__('Log In')}</SectionLabel>
 
                     <form
                         noValidate
@@ -36,7 +38,7 @@ export default function Auth() {
                     >
                         <div>
                             <Label htmlFor="login-username">
-                                Felhasználónév
+                                {__('Username')}
                             </Label>
 
                             <div className="mt-2">
@@ -66,7 +68,7 @@ export default function Auth() {
 
                         <div>
                             <Label htmlFor="login-password">
-                                Jelszó
+                                {__('Password')}
                             </Label>
 
                             <div className="mt-2">
@@ -99,16 +101,15 @@ export default function Auth() {
                                 disabled={loginForm.processing}
                             >
                                 {loginForm.processing
-                                    ? 'Bejelentkezés...'
-                                    : 'Bejelentkezés'}
+                                    ? __('Logging in...')
+                                    : __('Login')}
                             </Button>
                         </div>
                     </form>
                 </div>
 
-                {/* Regisztráció */}
                 <div className="border-t border-[var(--color-rule)] p-8 md:border-l md:border-t-0 md:p-10">
-                    <SectionLabel>Regisztráció</SectionLabel>
+                    <SectionLabel>{__('Register')}</SectionLabel>
 
                     <form
                         noValidate
@@ -120,7 +121,7 @@ export default function Auth() {
                     >
                         <div>
                             <Label htmlFor="register-username">
-                                Felhasználónév
+                                {__('Username')}
                             </Label>
 
                             <div className="mt-2">
@@ -157,7 +158,7 @@ export default function Auth() {
                                 <Input
                                     id="register-email"
                                     type="email"
-                                    placeholder="nemkell.azigazit@megadnod.hu"
+                                    placeholder={__("real.email@notneeded.com")}
                                     value={registerForm.data.email}
                                     onChange={(e) =>
                                         registerForm.setData(
@@ -181,13 +182,13 @@ export default function Auth() {
 
                         <div>
                             <Label htmlFor="register-password">
-                                Jelszó
+                                {__('Password')}
                             </Label>
 
                             <div className="mt-2">
                                 <PasswordInput
                                     id="register-password"
-                                    placeholder="Minimum 6 karakter"
+                                    placeholder={__("minimum 6 characters")}
                                     value={registerForm.data.password}
                                     onChange={(e) =>
                                         registerForm.setData(
@@ -211,13 +212,13 @@ export default function Auth() {
 
                         <div>
                             <Label htmlFor="register-password-confirmation">
-                                Jelszó újra
+                                {__('Confirm Password')}
                             </Label>
 
                             <div className="mt-2">
                                 <PasswordInput
                                     id="register-password-confirmation"
-                                    placeholder="Jelszó újra"
+                                    placeholder={__("Confirm Password")}
                                     value={
                                         registerForm.data
                                             .password_confirmation
@@ -252,8 +253,8 @@ export default function Auth() {
                                 disabled={registerForm.processing}
                             >
                                 {registerForm.processing
-                                    ? 'Regisztráció...'
-                                    : 'Regisztráció'}
+                                    ? ('Registering...')
+                                    : __('Register')}
                             </Button>
                         </div>
                     </form>

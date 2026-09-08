@@ -1,5 +1,6 @@
 import { Link } from '@inertiajs/react'
 import { ShoppingCart } from 'lucide-react'
+import { useTranslations } from '@/hooks/useTranslation';
 
 interface ProductCardProps {
   slug: string
@@ -16,6 +17,8 @@ function ProductCard({
   price,
   image,
 }: ProductCardProps) {
+  const { __ } = useTranslations();
+  
   return (
     <div className="overflow-hidden rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] transition-[box-shadow] duration-150 hover:shadow-[0_4px_20px_rgba(28,25,23,0.09)]">
       <Link href={`/products/${slug}`} className="block">
@@ -36,11 +39,11 @@ function ProductCard({
 
       <div className="px-[20px] py-[18px]">
         <div className="mb-[6px] text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
-          {category}
+          {__(category)}
         </div>
 
         <div className="mb-[4px] text-[15px] font-medium text-[var(--color-ink)]">
-          {name}
+          {__(name)}
         </div>
 
         <div className="flex items-center justify-between">
