@@ -30,6 +30,23 @@ class HandleInertiaRequests extends Middleware
             return [];
         };
 
+        $cartCount = 0;
+
+        if ($request->user()) {
+            $cart = $request->user()
+                ->cart()
+                ->with('items')
+                ->first();
+
+            if ($cart) {
+                $cartCount = $cart->items->sum('quantity');
+            }
+        } else {
+            $cartCount = collect(
+                Session::get('cart', [])
+            )->sum();
+        }
+
         return [
             ...parent::share($request),
 
@@ -44,6 +61,7 @@ class HandleInertiaRequests extends Middleware
 
             'locale' => App::getLocale(),
             'translations' => $getTranslations(),
+            'cartCount' => $cartCount,
         ];
     }
 }

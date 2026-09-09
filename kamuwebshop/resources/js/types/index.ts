@@ -8,4 +8,5 @@ export type SharedData = {
     sidebarOpen: boolean;
     translations: Record<string, string>;
     locale: string;
+    cartCount: number;
 };

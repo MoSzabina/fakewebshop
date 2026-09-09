@@ -349,5 +349,16 @@
     "Private Island": "Privát sziget",
     "Solid Gold Toilet": "Tömör arany WC",
     "Emotional Support Rock": "Érzelmi támogató kő",
-    "Invisible Dog": "Láthatatlan kutya"
+    "Invisible Dog": "Láthatatlan kutya",
+    "Add to cart": "Kosárba",
+    "Your selected products": "A kiválasztott termékeid",
+    "Your cart is empty.": "A kosarad üres.",
+    "Clear cart": "Kosár törlése",
+    "Decrease quantity": "Mennyiség csökkentése",
+    "Increase quantity": "Mennyiség növelése",
+    "Remove": "Eltávolítás",
+    "Order summary": "Rendelés összesítése",
+    "Total": "Összesen",
+    "Proceed to checkout": "Tovább a pénztárhoz",
+    "Not enough stock available.": "Nincs elegendő készlet."
 }

@@ -7,7 +7,7 @@ import { useTranslations } from '@/hooks/useTranslation';
 import type { SharedData } from '@/types';
 
 export function AppHeader() {
-    const { auth, locale } = usePage<SharedData>().props;
+    const { auth, locale, cartCount } = usePage<SharedData>().props;
     const { __ } = useTranslations();
 
     const [menuOpen, setMenuOpen] = useState(false);
@@ -80,11 +80,10 @@ export function AppHeader() {
                         <button
                             type="button"
                             onClick={() => handleLanguageChange('en')}
-                            className={`px-1 py-0.5 transition-colors ${
-                                locale === 'en'
-                                    ? 'text-[#1C1917]'
-                                    : 'text-[#A8A29E] hover:text-[#6B6460]'
-                            }`}
+                            className={`px-1 py-0.5 transition-colors ${locale === 'en'
+                                ? 'text-[#1C1917]'
+                                : 'text-[#A8A29E] hover:text-[#6B6460]'
+                                }`}
                         >
                             EN
                         </button>
@@ -94,11 +93,10 @@ export function AppHeader() {
                         <button
                             type="button"
                             onClick={() => handleLanguageChange('hu')}
-                            className={`px-1 py-0.5 transition-colors ${
-                                locale === 'hu'
-                                    ? 'text-[#1C1917]'
-                                    : 'text-[#A8A29E] hover:text-[#6B6460]'
-                            }`}
+                            className={`px-1 py-0.5 transition-colors ${locale === 'hu'
+                                ? 'text-[#1C1917]'
+                                : 'text-[#A8A29E] hover:text-[#6B6460]'
+                                }`}
                         >
                             HU
                         </button>
@@ -117,8 +115,15 @@ export function AppHeader() {
                                 <Link
                                     href="/cart"
                                     aria-label={__('Cart')}
+                                    className="relative"
                                 >
                                     <ShoppingBag />
+
+                                    {cartCount > 0 && (
+                                        <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[9px] font-medium leading-none text-white">
+                                            {cartCount}
+                                        </span>
+                                    )}
                                 </Link>
                             </Button>
                         </>
@@ -148,8 +153,15 @@ export function AppHeader() {
                                 <Link
                                     href="/cart"
                                     aria-label={__('Cart')}
+                                    className="relative"
                                 >
                                     <ShoppingBag />
+
+                                    {cartCount > 0 && (
+                                        <span className="absolute -right-1 -top-1 flex min-w-4 h-4 items-center justify-center rounded-full bg-red-500 px-1 text-[9px] font-medium leading-none text-white">
+                                            {cartCount}
+                                        </span>
+                                    )}
                                 </Link>
                             </Button>
 
@@ -274,11 +286,10 @@ export function AppHeader() {
                             <button
                                 type="button"
                                 onClick={() => handleLanguageChange('en')}
-                                className={`px-1 py-0.5 transition-colors ${
-                                    locale === 'en'
-                                        ? 'text-[#1C1917]'
-                                        : 'text-[#A8A29E] hover:text-[#6B6460]'
-                                }`}
+                                className={`px-1 py-0.5 transition-colors ${locale === 'en'
+                                    ? 'text-[#1C1917]'
+                                    : 'text-[#A8A29E] hover:text-[#6B6460]'
+                                    }`}
                             >
                                 EN
                             </button>
@@ -288,11 +299,10 @@ export function AppHeader() {
                             <button
                                 type="button"
                                 onClick={() => handleLanguageChange('hu')}
-                                className={`px-1 py-0.5 transition-colors ${
-                                    locale === 'hu'
-                                        ? 'text-[#1C1917]'
-                                        : 'text-[#A8A29E] hover:text-[#6B6460]'
-                                }`}
+                                className={`px-1 py-0.5 transition-colors ${locale === 'hu'
+                                    ? 'text-[#1C1917]'
+                                    : 'text-[#A8A29E] hover:text-[#6B6460]'
+                                    }`}
                             >
                                 HU
                             </button>

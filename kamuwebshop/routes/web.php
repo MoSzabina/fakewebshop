@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\CartController;
 
 Route::post('/locale', [LocaleController::class, 'change'])->name('locale.change');
 
@@ -18,7 +19,20 @@ Route::inertia('/products', 'products')->name('products');
 Route::get('/products', [ProductController::class, 'index'])
     ->name('products');
 
-Route::inertia('/cart', 'cart')->name('cart');
+Route::get('/cart', [CartController::class, 'index'])
+    ->name('cart');
+
+Route::post('/cart/add/{product:slug}', [CartController::class, 'add'])
+    ->name('cart.add');
+
+Route::patch('/cart/update/{product}', [CartController::class, 'update'])
+    ->name('cart.update');
+
+Route::delete('/cart/remove/{product}', [CartController::class, 'remove'])
+    ->name('cart.remove');
+
+Route::delete('/cart/clear', [CartController::class, 'clear'])
+    ->name('cart.clear');
 
 // Authenticated user pages
 Route::middleware('auth')->group(function () {
