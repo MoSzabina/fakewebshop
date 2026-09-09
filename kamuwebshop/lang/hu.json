@@ -357,8 +357,18 @@
     "Decrease quantity": "Mennyiség csökkentése",
     "Increase quantity": "Mennyiség növelése",
     "Remove": "Eltávolítás",
-    "Order summary": "Rendelés összesítése",
+    "Order summary": "Összesítés",
     "Total": "Összesen",
     "Proceed to checkout": "Tovább a pénztárhoz",
-    "Not enough stock available.": "Nincs elegendő készlet."
+    "Not enough stock available.": "Nincs elegendő készlet.",
+    "Checkout": "Pénztár",
+    "Complete your order": "Fejezd be a rendelést",
+    "Shipping address": "Szállítási cím",
+    "Enter some address, e.g. Bikini Bottom, Conch Street 124": "Add meg a szállítási címet, pl. Bikinifenék, Kagyló sétány 124.",
+    "Placing order...": "Rendelés leadása...",
+    "Place order": "Rendelés leadása",
+    "Login required": "Bejelentkezés szükséges",
+    "You need to log in to place an order.": "A rendelés leadásához be kell jelentkezned.",
+    "Back to cart": "Vissza a kosárhoz"
+
 }
