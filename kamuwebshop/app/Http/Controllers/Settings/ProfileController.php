@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Settings\PasswordUpdateRequest;
 use App\Http\Requests\Settings\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,11 +12,18 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
-
     public function edit(Request $request): Response
     {
+        $user = $request->user();
+
+        $orders = $user->orders()
+            ->with('items.product')
+            ->latest()
+            ->get();
+
         return Inertia::render('profile', [
-            'user' => $request->user(),
+            'user' => $user,
+            'orders' => $orders,
         ]);
     }
 
@@ -27,7 +35,22 @@ class ProfileController extends Controller
 
         Inertia::flash('toast', [
             'type' => 'success',
-            'message' => 'A szállítási cím módosítva',
+            'message' => 'Shipping address updated',
+        ]);
+
+        return back();
+    }
+
+    public function updatePassword(
+        PasswordUpdateRequest $request
+    ): RedirectResponse {
+        $request->user()->update([
+            'password' => $request->password,
+        ]);
+
+        Inertia::flash('toast', [
+            'type' => 'success',
+            'message' => __('Password updated'),
         ]);
 
         return back();
