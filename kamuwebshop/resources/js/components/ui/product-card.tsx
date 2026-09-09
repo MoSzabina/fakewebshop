@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react'
+import { Link, router } from '@inertiajs/react'
 import { ShoppingCart } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslation';
 
@@ -53,7 +53,9 @@ function ProductCard({
 
           <button
             type="button"
+            onClick={() => router.post(`/cart/add/${slug}`)}
             className="flex size-8 items-center justify-center rounded-[3px] border border-[var(--color-rule)] text-[18px] font-light text-[var(--color-ink)] transition-colors hover:bg-[var(--color-sage-light)]"
+            aria-label={__("Add to cart")}
           >
             <ShoppingCart size={16} />
           </button>
