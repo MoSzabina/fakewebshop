@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
-Route::post('/locale', [LocaleController::class, 'change'])->name('locale.change');
+Route::post('/locale', [LocaleController::class, 'change'])
+    ->name('locale.change');
 
-// Public pages
 Route::inertia('/', 'home')->name('home');
 
 Route::inertia('/about', 'about')->name('about');
@@ -34,14 +35,22 @@ Route::delete('/cart/remove/{product}', [CartController::class, 'remove'])
 Route::delete('/cart/clear', [CartController::class, 'clear'])
     ->name('cart.clear');
 
-// Authenticated user pages
+Route::post('/checkout/redirect', function () {
+    session()->put('checkout_redirect', true);
+
+    return redirect()->route('auth');
+})->name('checkout.redirect');
+
 Route::middleware('auth')->group(function () {
-    Route::inertia('/checkout', 'checkout')->name('checkout');
+    Route::get('/checkout', [CheckoutController::class, 'index'])
+        ->name('checkout');
+
+    Route::post('/checkout', [CheckoutController::class, 'store'])
+        ->name('checkout.store');
 
     Route::inertia('/credits', 'credits')->name('credits');
 });
 
-// Admin pages
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::inertia('/dashboard', 'dashboard')->name('dashboard');
 });
