@@ -15,4 +15,19 @@ class ProductController extends Controller
             'categories' => Category::all(),
         ]);
     }
+
+    public function show(Product $product)
+    {
+        $product->load('category');
+
+        $relatedProducts = Product::with('category')
+            ->where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->get();
+
+        return Inertia::render('product', [
+            'product' => $product,
+            'relatedProducts' => $relatedProducts,
+        ]);
+    }
 }

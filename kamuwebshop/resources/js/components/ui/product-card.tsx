@@ -8,6 +8,7 @@ interface ProductCardProps {
   name: string
   price: string
   image?: string
+  showCartButton?: boolean
 }
 
 function ProductCard({
@@ -16,16 +17,17 @@ function ProductCard({
   name,
   price,
   image,
+  showCartButton = true,
 }: ProductCardProps) {
   const { __ } = useTranslations();
-  
+
   return (
     <div className="overflow-hidden rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] transition-[box-shadow] duration-150 hover:shadow-[0_4px_20px_rgba(28,25,23,0.09)]">
       <Link href={`/products/${slug}`} className="block">
         <div className="flex items-center justify-center bg-[var(--color-sage-light)]">
           {image ? (
             <img
-              src={image}
+              src={image?.startsWith('/') ? image : `/${image}`}
               alt={name}
               className="h-full w-full object-cover"
             />
@@ -51,14 +53,16 @@ function ProductCard({
             {price}
           </div>
 
-          <button
-            type="button"
-            onClick={() => router.post(`/cart/add/${slug}`)}
-            className="flex size-8 items-center justify-center rounded-[3px] border border-[var(--color-rule)] text-[18px] font-light text-[var(--color-ink)] transition-colors hover:bg-[var(--color-sage-light)]"
-            aria-label={__("Add to cart")}
-          >
-            <ShoppingCart size={16} />
-          </button>
+          {showCartButton && (
+            <button
+              type="button"
+              onClick={() => router.post(`/cart/add/${slug}`)}
+              className="flex size-8 items-center justify-center rounded-[3px] border border-[var(--color-rule)] text-[18px] font-light text-[var(--color-ink)] transition-colors hover:bg-[var(--color-sage-light)]"
+              aria-label={__("Add to cart")}
+            >
+              <ShoppingCart size={16} />
+            </button>
+          )}
         </div>
       </div>
     </div>
