@@ -2,12 +2,9 @@ import { useState } from 'react';
 import { ProductCard } from '@/components/ui/product-card';
 import { useTranslations } from '@/hooks/useTranslation';
 
-
-
 interface Category {
     id: number;
     name: string;
-    slug: string;
 }
 
 interface Product {
@@ -25,21 +22,19 @@ interface ProductsProps {
 }
 
 export default function Products({
-
     products,
     categories,
 }: ProductsProps) {
     const { __ } = useTranslations();
+
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [sort, setSort] = useState('default');
-
     const filteredProducts = products
         .filter((product) => {
             if (selectedCategory === 'all') {
                 return true;
             }
-
-            return product.category.slug === selectedCategory;
+            return product.category.id === Number(selectedCategory);
         })
         .sort((a, b) => {
             if (sort === 'price-asc') {
@@ -84,7 +79,7 @@ export default function Products({
                             <option value="all">{__('All categories')}</option>
 
                             {categories.map((category) => (
-                                <option key={category.id} value={category.slug}>
+                                <option key={category.id} value={category.id}>
                                     {__(category.name)}
                                 </option>
                             ))}
@@ -105,7 +100,6 @@ export default function Products({
                             onChange={(e) => setSort(e.target.value)}
                             className="rounded-[3px] border-[1.5px] border-[var(--color-rule)] bg-[var(--color-white)] px-3 py-2 text-[14px] text-[var(--color-ink)] outline-none focus:border-[var(--color-ink)]"
                         >
-                            <option value="default">{__("Default")}</option>
                             <option value="price-asc">{__("Price: Low to High")}</option>
                             <option value="price-desc">{__("Price: High to Low")}</option>
                         </select>

@@ -20,6 +20,9 @@ Route::inertia('/products', 'products')->name('products');
 Route::get('/products', [ProductController::class, 'index'])
     ->name('products');
 
+Route::get('/products/{product:slug}', [ProductController::class, 'show'])
+    ->name('products.show');
+
 Route::get('/cart', [CartController::class, 'index'])
     ->name('cart');
 
