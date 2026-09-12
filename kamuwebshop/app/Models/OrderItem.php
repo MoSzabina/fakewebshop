@@ -16,14 +16,14 @@ class OrderItem extends Model
         'order_id',
         'product_id',
         'quantity',
-        'unit_price',
+        'unitprice',
     ];
 
     protected function casts(): array
     {
         return [
             'quantity' => 'integer',
-            'unit_price' => 'decimal:2',
+            'unitprice' => 'decimal:2',
         ];
     }
 

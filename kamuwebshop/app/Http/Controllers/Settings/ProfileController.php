@@ -16,6 +16,12 @@ class ProfileController extends Controller
     {
         $user = $request->user();
 
+        $creditBalance = $user->creditTransactions()->sum('amount');
+
+        $creditTransactions = $user->creditTransactions()
+            ->latest()
+            ->get();
+
         $orders = $user->orders()
             ->with('items.product')
             ->latest()
@@ -24,6 +30,8 @@ class ProfileController extends Controller
         return Inertia::render('profile', [
             'user' => $user,
             'orders' => $orders,
+            'creditBalance' => $creditBalance,
+            'creditTransactions' => $creditTransactions,
         ]);
     }
 

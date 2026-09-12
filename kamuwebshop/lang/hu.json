@@ -356,8 +356,8 @@
     "Decrease quantity": "Mennyiség csökkentése",
     "Increase quantity": "Mennyiség növelése",
     "Remove": "Eltávolítás",
-    "Order summary": "Összesítés",
-    "Total": "Összesen",
+    "Order summary": "Összegzés",
+    "Total": "Teljes összeg",
     "Proceed to checkout": "Tovább a pénztárhoz",
     "Not enough stock available.": "Nincs elegendő készlet.",
     "Checkout": "Pénztár",
@@ -427,5 +427,8 @@
     "You will be successful and happy": "Sikeres és boldog leszel",
     "Basically free": "Lényegében ingyen van",
     "Order now! Now you have it.": "Rendeld meg most! Tessék, a tiéd.",
-    "1 of 10 very useful powers, really!": "A 10 igazán hasznos szuperképesség egyike! De tényleg!"
+    "1 of 10 very useful powers, really!": "A 10 igazán hasznos szuperképesség egyike! De tényleg!",
+    "Welcome! Here, 1000 credits to spend wisely.": "Üdv! Nesze 1000 kredit, bölcsen költsd el.",
+    "Edit Shipping Address": "Szállítási cím módosítása",
+    "You do not have enough credits to place this order.": "Nincs elég kredited a rendeléshez."
 }

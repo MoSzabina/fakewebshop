@@ -56,7 +56,11 @@ function ProductCard({
           {showCartButton && (
             <button
               type="button"
-              onClick={() => router.post(`/cart/add/${slug}`)}
+              onClick={() =>
+                router.post(`/cart/add/${slug}`, {}, {
+                  preserveScroll: true,
+                })
+              }
               className="flex size-8 items-center justify-center rounded-[3px] border border-[var(--color-rule)] text-[18px] font-light text-[var(--color-ink)] transition-colors hover:bg-[var(--color-sage-light)]"
               aria-label={__("Add to cart")}
             >

@@ -124,7 +124,7 @@ export default function Cart({ cart }: CartProps) {
                                         </Link>
 
                                         <div className="mt-2 text-[14px] text-[var(--color-ink-mid)]">
-                                            {item.product.price} €
+                                            {item.product.price}
                                         </div>
 
                                         <div className="mt-4 flex items-center gap-2">
@@ -185,7 +185,6 @@ export default function Cart({ cart }: CartProps) {
                                             Number(item.product.price) *
                                             item.quantity
                                         ).toFixed(2)}{' '}
-                                        €
                                     </div>
                                 </div>
                             ))}
@@ -209,7 +208,7 @@ export default function Cart({ cart }: CartProps) {
 
                         <div className="mb-6 flex justify-between border-b border-[var(--color-rule)] pb-4 text-[16px] font-medium text-[var(--color-ink)]">
                             <span>{__('Total')}</span>
-                            <span>{total.toFixed(2)} €</span>
+                            <span>{total.toFixed(2)}</span>
                         </div>
 
                         <Button

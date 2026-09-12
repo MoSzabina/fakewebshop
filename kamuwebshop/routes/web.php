@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CreditController;
 
 Route::post('/locale', [LocaleController::class, 'change'])
     ->name('locale.change');
@@ -51,7 +52,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/checkout', [CheckoutController::class, 'store'])
         ->name('checkout.store');
 
-    Route::inertia('/credits', 'credits')->name('credits');
+    Route::get('/credits', [CreditController::class, 'index'])
+    ->name('credits');
+
+    Route::post('/credits/daily-reward', [CreditController::class, 'claimDailyReward'])
+    ->name('credits.daily-reward');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
