@@ -113,7 +113,7 @@ export default function Products({
                             slug={product.slug}
                             category={product.category.name}
                             name={product.name}
-                            price={`${product.price} €`}
+                            price={`${product.price}`}
                             image={product.image}
                         />
                     ))}

@@ -78,7 +78,7 @@ export default function ProductPage({
                     </h1>
 
                     <div className="mt-4 text-[16px] text-[var(--color-ink-mid)]">
-                        {product.price} €
+                        {product.price}
                     </div>
 
                     <p className="mt-7 text-[15px] leading-7 text-[var(--color-ink-mid)]">
@@ -112,7 +112,7 @@ export default function ProductPage({
                                 slug={relatedProduct.slug}
                                 category={relatedProduct.category.name}
                                 name={relatedProduct.name}
-                                price={`${relatedProduct.price} €`}
+                                price={`${relatedProduct.price}`}
                                 image={relatedProduct.image}
                                 showCartButton={false}
                             />

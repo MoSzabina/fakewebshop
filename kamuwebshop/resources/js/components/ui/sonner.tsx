@@ -8,6 +8,8 @@ function Toaster({ ...props }: ToasterProps) {
         <Sonner
             position="bottom-right"
             toastOptions={{
+                duration: 5000,
+                className: 'animated-toast',
                 style: {
                     background: 'var(--color-white)',
                     color: 'var(--color-ink)',

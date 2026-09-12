@@ -14,10 +14,17 @@ interface User {
     shipping?: string | null;
 }
 
+interface CreditTransaction {
+    id: number;
+    amount: number;
+    type: string;
+    created_at: string;
+}
+
 interface OrderItem {
     id: number;
     quantity: number;
-    unit_price: string;
+    unitprice: string;
     product: {
         name: string;
     };
@@ -34,15 +41,20 @@ interface Order {
 interface ProfileProps {
     user: User;
     orders: Order[];
+    creditBalance: number;
+    creditTransactions: CreditTransaction[];
 }
 
 export default function Profile({
     user,
     orders,
+    creditBalance,
+    creditTransactions,
 }: ProfileProps) {
     const { __ } = useTranslations();
 
     const [editingShipping, setEditingShipping] = useState(false);
+    const [showCreditHistory, setShowCreditHistory] = useState(false);
 
     const profileForm = useForm({
         shipping: user.shipping ?? '',
@@ -85,6 +97,7 @@ export default function Profile({
 
             <div className="space-y-12">
                 <div className="grid gap-8 lg:grid-cols-2">
+
                     <section>
                         <SectionLabel>
                             {__('Account')}
@@ -118,7 +131,7 @@ export default function Profile({
                                             setEditingShipping(true)
                                         }
                                     >
-                                        {__('Edit')}
+                                        {__('Edit Shipping Address')}
                                     </Button>
                                 </div>
                             )}
@@ -146,19 +159,14 @@ export default function Profile({
 
                                     {profileForm.errors.shipping && (
                                         <p className="mt-2 text-[12px] text-red-600">
-                                            {
-                                                profileForm
-                                                    .errors.shipping
-                                            }
+                                            {profileForm.errors.shipping}
                                         </p>
                                     )}
 
                                     <div className="mt-4 flex gap-3">
                                         <Button
                                             type="submit"
-                                            disabled={
-                                                profileForm.processing
-                                            }
+                                            disabled={profileForm.processing}
                                         >
                                             {profileForm.processing
                                                 ? __('Saving...')
@@ -168,12 +176,8 @@ export default function Profile({
                                         <Button
                                             type="button"
                                             variant="muted"
-                                            onClick={
-                                                cancelShippingEdit
-                                            }
-                                            disabled={
-                                                profileForm.processing
-                                            }
+                                            onClick={cancelShippingEdit}
+                                            disabled={profileForm.processing}
                                         >
                                             {__('Cancel')}
                                         </Button>
@@ -191,38 +195,41 @@ export default function Profile({
                         <div className="mt-5 rounded-[4px] bg-[var(--color-sage-light)] p-6">
 
                             <div className="mt-2 text-[32px] font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
-                                — €
+                                {Number(creditBalance).toFixed(2)}
                             </div>
 
                             <div className="mt-6 border-t border-[var(--color-rule)] pt-5">
 
                                 <div className="space-y-3">
-                                    <div className="flex items-center justify-between text-[13px]">
-                                        <span className="text-[var(--color-ink-mid)]">
-                                            —
-                                        </span>
-                                        <span className="text-[var(--color-ink)]">
-                                            —
-                                        </span>
-                                    </div>
+                                    {creditTransactions
+                                        .slice(0, 3)
+                                        .map((transaction) => (
+                                            <div
+                                                key={transaction.id}
+                                                className="flex items-center justify-between text-[13px]"
+                                            >
+                                                <span className="text-[var(--color-ink-mid)]">
+                                                    {new Date(
+                                                        transaction.created_at,
+                                                    ).toLocaleDateString()}
+                                                </span>
 
-                                    <div className="flex items-center justify-between text-[13px]">
-                                        <span className="text-[var(--color-ink-mid)]">
-                                            —
-                                        </span>
-                                        <span className="text-[var(--color-ink)]">
-                                            —
-                                        </span>
-                                    </div>
+                                                <span className="text-[var(--color-ink)]">
+                                                    {transaction.amount > 0
+                                                        ? '+'
+                                                        : ''}
+                                                    {transaction.amount}
+                                                </span>
+                                            </div>
+                                        ))}
 
-                                    <div className="flex items-center justify-between text-[13px]">
-                                        <span className="text-[var(--color-ink-mid)]">
-                                            —
-                                        </span>
-                                        <span className="text-[var(--color-ink)]">
-                                            —
-                                        </span>
-                                    </div>
+                                    {creditTransactions.length === 0 && (
+                                        <div className="text-[13px] text-[var(--color-ink-mid)]">
+                                            {__(
+                                                'No credit transactions yet.',
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
@@ -230,6 +237,9 @@ export default function Profile({
                                 <Button
                                     type="button"
                                     variant="muted"
+                                    onClick={() =>
+                                        setShowCreditHistory(true)
+                                    }
                                 >
                                     {__('History')}
                                 </Button>
@@ -279,7 +289,7 @@ export default function Profile({
                                         </span>
 
                                         <span className="text-[13px] text-[var(--color-ink)] md:text-right">
-                                            {order.total_price} €
+                                            {order.total_price}
                                         </span>
                                     </div>
                                 ))}
@@ -309,8 +319,7 @@ export default function Profile({
                                 <PasswordInput
                                     id="current-password"
                                     value={
-                                        passwordForm.data
-                                            .current_password
+                                        passwordForm.data.current_password
                                     }
                                     onChange={(e) =>
                                         passwordForm.setData(
@@ -324,10 +333,7 @@ export default function Profile({
 
                             {passwordForm.errors.current_password && (
                                 <p className="mt-2 text-[12px] text-red-600">
-                                    {
-                                        passwordForm.errors
-                                            .current_password
-                                    }
+                                    {passwordForm.errors.current_password}
                                 </p>
                             )}
                         </div>
@@ -343,9 +349,7 @@ export default function Profile({
                             <div className="mt-2">
                                 <PasswordInput
                                     id="new-password"
-                                    value={
-                                        passwordForm.data.password
-                                    }
+                                    value={passwordForm.data.password}
                                     onChange={(e) =>
                                         passwordForm.setData(
                                             'password',
@@ -390,13 +394,13 @@ export default function Profile({
 
                             {passwordForm.errors
                                 .password_confirmation && (
-                                    <p className="mt-2 text-[12px] text-red-600">
-                                        {
-                                            passwordForm.errors
-                                                .password_confirmation
-                                        }
-                                    </p>
-                                )}
+                                <p className="mt-2 text-[12px] text-red-600">
+                                    {
+                                        passwordForm.errors
+                                            .password_confirmation
+                                    }
+                                </p>
+                            )}
                         </div>
 
                         <Button
@@ -410,6 +414,89 @@ export default function Profile({
                     </form>
                 </section>
             </div>
+
+            {showCreditHistory && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 px-4"
+                    onClick={() => setShowCreditHistory(false)}
+                >
+                    <div
+                        className="w-full max-w-[520px] rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] p-6 shadow-[0_8px_40px_rgba(28,25,23,0.15)]"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="flex items-center justify-between">
+                            <h2 className="text-[20px] font-semibold text-[var(--color-ink)]">
+                                {__('Credit history')}
+                            </h2>
+
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    setShowCreditHistory(false)
+                                }
+                                className="text-[22px] leading-none text-[var(--color-ink-mid)] transition-colors hover:text-[var(--color-ink)]"
+                                aria-label={__('Close')}
+                            >
+                                ×
+                            </button>
+                        </div>
+
+                        <div className="mt-6 max-h-[400px] overflow-y-auto pr-2">
+                            {creditTransactions.length === 0 ? (
+                                <p className="text-[14px] text-[var(--color-ink-mid)]">
+                                    {__(
+                                        'No credit transactions yet.',
+                                    )}
+                                </p>
+                            ) : (
+                                <div className="space-y-4">
+                                    {creditTransactions.map(
+                                        (transaction) => (
+                                            <div
+                                                key={transaction.id}
+                                                className="flex items-center justify-between border-b border-[var(--color-rule)] pb-3"
+                                            >
+                                                <div>
+                                                    <div className="text-[13px] text-[var(--color-ink)]">
+                                                        {__(
+                                                            transaction.type,
+                                                        )}
+                                                    </div>
+
+                                                    <div className="mt-1 text-[12px] text-[var(--color-ink-mid)]">
+                                                        {new Date(
+                                                            transaction.created_at,
+                                                        ).toLocaleDateString()}
+                                                    </div>
+                                                </div>
+
+                                                <div className="text-[13px] font-medium text-[var(--color-ink)]">
+                                                    {transaction.amount > 0
+                                                        ? '+'
+                                                        : ''}
+                                                    {transaction.amount}
+                                                </div>
+                                            </div>
+                                        ),
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="mt-6">
+                            <Button
+                                type="button"
+                                variant="muted"
+                                onClick={() =>
+                                    setShowCreditHistory(false)
+                                }
+                            >
+                                {__('Close')}
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }

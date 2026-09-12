@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\CreditTransactionType;
 use App\Enums\OrderStatus;
 use App\Models\Cart;
+use App\Models\CreditTransaction;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,9 +28,14 @@ class CheckoutController extends Controller
             return (float) $item->product->price * $item->quantity;
         });
 
+        $balance = $request->user()
+            ->creditTransactions()
+            ->sum('amount');
+
         return Inertia::render('checkout', [
             'cart' => $cart,
             'total' => number_format($total, 2, '.', ''),
+            'balance' => $balance,
         ]);
     }
 
@@ -48,7 +55,7 @@ class CheckoutController extends Controller
             return redirect()->route('cart');
         }
 
-        $order = DB::transaction(function () use ($cart, $validated) {
+        $order = DB::transaction(function () use ($cart, $validated, $user) {
             $total = 0;
 
             foreach ($cart->items as $item) {
@@ -59,9 +66,17 @@ class CheckoutController extends Controller
                 $total += (float) $item->product->price * $item->quantity;
             }
 
+            $balance = $user->creditTransactions()
+                ->lockForUpdate()
+                ->sum('amount');
+
+            if ($balance < $total) {
+                abort(422, 'Not enough credits available.');
+            }
+
             $order = Order::create([
                 'user_id' => $cart->user_id,
-                'status' => OrderStatus::pending,
+                'status' => OrderStatus::Pending,
                 'total_price' => $total,
                 'shipping' => $validated['shipping'],
             ]);
@@ -70,17 +85,23 @@ class CheckoutController extends Controller
                 $order->items()->create([
                     'product_id' => $item->product_id,
                     'quantity' => $item->quantity,
-                    'unit_price' => $item->product->price,
+                    'unitprice' => $item->product->price,
                 ]);
 
                 $item->product->decrement('stock', $item->quantity);
             }
+
+            CreditTransaction::create([
+                'user_id' => $user->id,
+                'amount' => -$total,
+                'type' => CreditTransactionType::Spent,
+            ]);
 
             $cart->items()->delete();
 
             return $order;
         });
 
-        return redirect()->route('orders.show', $order);
+        return redirect()->route('profile.edit');
     }
 }

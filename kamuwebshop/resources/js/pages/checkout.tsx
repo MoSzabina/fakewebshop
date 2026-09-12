@@ -1,4 +1,4 @@
-import { Link, router, useForm } from '@inertiajs/react';
+import { Link, useForm } from '@inertiajs/react';
 
 import { Button } from '@/components/ui/button';
 import { useTranslations } from '@/hooks/useTranslation';
@@ -31,14 +31,18 @@ interface Cart {
 interface CheckoutProps {
     cart: Cart;
     total: string;
+    creditBalance: number;
 }
 
-export default function Checkout({ cart, total }: CheckoutProps) {
+export default function Checkout({ cart, total, creditBalance }: CheckoutProps) {
     const { __ } = useTranslations();
 
     const { data, setData, post, processing, errors } = useForm({
         shipping: '',
     });
+
+    const totalAmount = Number(total);
+    const hasEnoughCredits = creditBalance >= totalAmount;
 
     const submit = (e: React.SubmitEvent) => {
         e.preventDefault();
@@ -65,7 +69,6 @@ export default function Checkout({ cart, total }: CheckoutProps) {
                         {__('Back to cart')}
                     </Link>
                 </div>
-
             </div>
 
             <div className="grid gap-10 md:grid-cols-[1fr_300px]">
@@ -92,13 +95,19 @@ export default function Checkout({ cart, total }: CheckoutProps) {
 
                     <Button
                         type="submit"
-                        disabled={processing}
+                        disabled={processing || !hasEnoughCredits}
                         className="w-full md:w-auto"
                     >
                         {processing
                             ? __('Placing order...')
                             : __('Place order')}
                     </Button>
+
+                    {!hasEnoughCredits && (
+                        <p className="mt-3 text-[13px] text-red-600">
+                            {__('You do not have enough credits to place this order.')}
+                        </p>
+                    )}
                 </form>
 
                 <aside className="h-fit rounded-[4px] bg-[var(--color-sage-light)] p-6">
@@ -124,16 +133,20 @@ export default function Checkout({ cart, total }: CheckoutProps) {
                                         Number(item.product.price) *
                                         item.quantity
                                     ).toFixed(2)}{' '}
-                                    €
                                 </div>
                             </div>
                         ))}
                     </div>
 
                     <div className="border-t border-[var(--color-rule)] pt-4">
+                        <div className="mb-3 flex justify-between text-[14px] text-[var(--color-ink-mid)]">
+                            <span>{__('Your balance')}</span>
+                            <span>{Number(creditBalance).toFixed(2)}</span>
+                        </div>
+
                         <div className="flex justify-between text-[16px] font-medium text-[var(--color-ink)]">
                             <span>{__('Total')}</span>
-                            <span>{total} €</span>
+                            <span>{total}</span>
                         </div>
                     </div>
                 </aside>
