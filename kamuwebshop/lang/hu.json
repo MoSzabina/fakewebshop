@@ -30,7 +30,7 @@
     "Choose Image": "Válassza a Kép lehetőséget",
     "Click to copy": "Kattintson a másoláshoz",
     "Client Closed Request": "Ügyfél kérése lezárva",
-    "Close": "Közeli",
+    "Close": "Bezárás",
     "Collapse": "Összeomlás",
     "Collapse All": "Mindet összecsuk",
     "Comment": "Megjegyzés",
@@ -430,5 +430,10 @@
     "1 of 10 very useful powers, really!": "A 10 igazán hasznos szuperképesség egyike! De tényleg!",
     "Welcome! Here, 1000 credits to spend wisely.": "Üdv! Nesze 1000 kredit, bölcsen költsd el.",
     "Edit Shipping Address": "Szállítási cím módosítása",
-    "You do not have enough credits to place this order.": "Nincs elég kredited a rendeléshez."
+    "You do not have enough credits to place this order.": "Nincs elég kredited a rendeléshez.",
+    "Purchased items": "Megvásárolt termékek",
+    "No purchased items yet": "Még nincs megvásárolt terméked",
+    "Credit history": "Kredit előzmények",
+    "spent": "elköltött",
+    "earn": "megszerzett"
 }
