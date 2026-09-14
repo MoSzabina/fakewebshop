@@ -140,3 +140,38 @@ table tbody tr:nth-child(even) {
     background: var(--color-rule);
     border-radius: 3px;
 }
+
+.animated-toast {
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-toast::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+
+    background: linear-gradient(
+        110deg,
+        #6B7C65,
+        transparent,
+        #6B7C65
+    );
+
+    transform: skewX(-20deg);
+    animation: toast-shine 2s ease-out 0.3s 1;
+}
+
+@keyframes toast-shine {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 150%;
+    }
+}

@@ -27,6 +27,7 @@ interface OrderItem {
     unitprice: string;
     product: {
         name: string;
+        image?: string;
     };
 }
 
@@ -248,7 +249,34 @@ export default function Profile({
                     </section>
                 </div>
 
-                <section className="border-t border-[var(--color-rule)] pt-10">
+                <section className="pt-10">
+                    <SectionLabel>
+                        {__('Purchased items')}
+                    </SectionLabel>
+
+                    <div className="mt-5">
+                        {orders.length === 0 ? (
+                            <p className="text-[14px] text-[var(--color-ink-mid)]">
+                                {__('No purchased items yet')}
+                            </p>
+                        ) : (
+                            <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4">
+                                {orders.flatMap((order) => order.items.map((item) => (<div key={`${order.id}-${item.id}`}>
+                                    <div className="aspect-square overflow-hidden rounded-[4px] bg-[var(--color-sage-light)]">
+                                        {item.product.image ? (<img src={item.product.image.startsWith('/') ? item.product.image : `/${item.product.image}`} alt={item.product.name} className="h-full w-full object-cover" />) : (<div className="flex h-full items-center justify-center text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
+                                            PRODUCT IMAGE </div>)}
+                                    </div>
+                                    <div className="mt-2">
+                                        <p className="text-[13px] font-medium text-[var(--color-ink)]"> {__(item.product.name)} </p>
+                                        <p className="mt-1 text-[12px] text-[var(--color-ink-mid)]"> × {item.quantity} </p>
+                                    </div>
+                                </div>)),)}
+                            </div>
+                        )}
+                    </div>
+                </section>
+
+                <section className="pt-10">
                     <SectionLabel>
                         {__('Order history')}
                     </SectionLabel>
@@ -298,7 +326,7 @@ export default function Profile({
                     </div>
                 </section>
 
-                <section className="border-t border-[var(--color-rule)] pt-10">
+                <section className="pt-10">
                     <SectionLabel>
                         {__('Security')}
                     </SectionLabel>
@@ -394,13 +422,13 @@ export default function Profile({
 
                             {passwordForm.errors
                                 .password_confirmation && (
-                                <p className="mt-2 text-[12px] text-red-600">
-                                    {
-                                        passwordForm.errors
-                                            .password_confirmation
-                                    }
-                                </p>
-                            )}
+                                    <p className="mt-2 text-[12px] text-red-600">
+                                        {
+                                            passwordForm.errors
+                                                .password_confirmation
+                                        }
+                                    </p>
+                                )}
                         </div>
 
                         <Button
