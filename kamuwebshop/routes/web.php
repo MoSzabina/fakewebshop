@@ -14,6 +14,8 @@ Route::inertia('/', 'home')->name('home');
 
 Route::inertia('/about', 'about')->name('about');
 
+Route::inertia('/privacy', 'privacy')->name('privacy');
+
 Route::inertia('/auth', 'auth')->name('auth');
 
 Route::inertia('/products', 'products')->name('products');
