@@ -177,3 +177,13 @@ table tbody tr:nth-child(even) {
         left: 150%;
     }
 }
+
+.dark {
+    --color-ink: #F5F5F4;
+    --color-ink-mid: #A8A29E;
+    --color-sage: #9BAF95;
+    --color-sage-light: #30382F;
+    --color-parchment: #292524;
+    --color-white: #1C1917;
+    --color-rule: #44403C;
+}

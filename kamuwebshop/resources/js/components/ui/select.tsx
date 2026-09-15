@@ -35,11 +35,11 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "flex w-fit items-center justify-between gap-2 whitespace-nowrap rounded-[4px] border border-[#DDD8D0] bg-[#FAF8F5] px-3 text-sm text-[#1C1917] outline-none transition-colors",
-        "hover:border-[#6B6460]",
-        "focus-visible:border-[#1C1917]",
+        "flex w-fit items-center justify-between gap-2 whitespace-nowrap rounded-[4px] border border-[[var(--color-rule)]] bg-[[var(--color-white)]] px-3 text-sm text-[[var(--color-ink)]] outline-none transition-colors",
+        "hover:border-[[var(--color-ink-mid)]]",
+        "focus-visible:border-[[var(--color-ink)]]",
         "disabled:cursor-not-allowed disabled:opacity-50",
-        "data-[placeholder]:text-[#6B6460]",
+        "data-[placeholder]:text-[[var(--color-ink-mid)]]",
         "data-[size=default]:h-9 data-[size=sm]:h-8",
         "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4",
         className
@@ -48,7 +48,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="size-4 text-[#6B6460]" />
+        <ChevronDownIcon className="size-4 text-[[var(--color-ink-mid)]]" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )
@@ -68,7 +68,7 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "relative z-50 max-h-[var(--radix-select-content-available-height)] min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-[4px] border border-[#DDD8D0] bg-[#FAF8F5] text-[#1C1917] shadow-[0_4px_20px_rgba(28,25,23,0.09)]",
+          "relative z-50 max-h-[var(--radix-select-content-available-height)] min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-[4px] border border-[[var(--color-rule)]] bg-[[var(--color-white)]] text-[[var(--color-ink)]] shadow-[0_4px_20px_rgba(28,25,23,0.09)]",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className
@@ -106,7 +106,7 @@ function SelectLabel({
     <SelectPrimitive.Label
       data-slot="select-label"
       className={cn(
-        "px-2 py-1.5 text-xs font-medium text-[#6B6460]",
+        "px-2 py-1.5 text-xs font-medium text-[[var(--color-ink-mid)]]",
         className
       )}
       {...props}
@@ -123,8 +123,8 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "relative flex w-full cursor-default select-none items-center gap-2 rounded-[4px] py-1.5 pr-8 pl-2 text-sm text-[#1C1917] outline-none",
-        "focus:bg-[#E8EDE7]",
+        "relative flex w-full cursor-default select-none items-center gap-2 rounded-[4px] py-1.5 pr-8 pl-2 text-sm text-[[var(--color-ink)]] outline-none",
+        "focus:bg-[[var(--color-sage-light)]]",
         "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4",
         className
@@ -136,7 +136,7 @@ function SelectItem({
         className="absolute right-2 flex size-3.5 items-center justify-center"
       >
         <SelectPrimitive.ItemIndicator>
-          <CheckIcon className="size-4 text-[#6B7C65]" />
+          <CheckIcon className="size-4 text-[[var(--color-sage)]]" />
         </SelectPrimitive.ItemIndicator>
       </span>
 
@@ -152,7 +152,7 @@ function SelectSeparator({
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
-      className={cn("pointer-events-none -mx-1 my-1 h-px bg-[#DDD8D0]", className)}
+      className={cn("pointer-events-none -mx-1 my-1 h-px bg-[[var(--color-rule)]]", className)}
       {...props}
     />
   )
@@ -166,7 +166,7 @@ function SelectScrollUpButton({
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-1 text-[#6B6460]",
+        "flex cursor-default items-center justify-center py-1 text-[[var(--color-ink-mid)]]",
         className
       )}
       {...props}
@@ -184,7 +184,7 @@ function SelectScrollDownButton({
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-1 text-[#6B6460]",
+        "flex cursor-default items-center justify-center py-1 text-[[var(--color-ink-mid)]]",
         className
       )}
       {...props}

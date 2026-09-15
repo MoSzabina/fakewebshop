@@ -31,6 +31,6 @@ createInertiaApp({
     },
 
     progress: {
-        color: '#6B7C65',
+        color: '[var(--color-sage)]',
     },
 })

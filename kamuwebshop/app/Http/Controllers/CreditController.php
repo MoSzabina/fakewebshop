@@ -14,7 +14,7 @@ class CreditController extends Controller
 {
     $user = $request->user();
 
-    $balance = $user->creditTransactions()
+    $creditBalance = $user->creditTransactions()
         ->sum('amount');
 
     $claimedToday = $user->creditTransactions()
@@ -25,7 +25,7 @@ class CreditController extends Controller
         ->exists();
 
     return Inertia::render('credits', [
-        'balance' => $balance,
+        'creditBalance' => $creditBalance,
         'claimedToday' => $claimedToday,
     ]);
 }

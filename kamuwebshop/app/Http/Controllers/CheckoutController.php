@@ -28,14 +28,14 @@ class CheckoutController extends Controller
             return (float) $item->product->price * $item->quantity;
         });
 
-        $balance = $request->user()
+        $creditBalance = $request->user()
             ->creditTransactions()
             ->sum('amount');
 
         return Inertia::render('checkout', [
             'cart' => $cart,
             'total' => number_format($total, 2, '.', ''),
-            'balance' => $balance,
+            'creditBalance' => $creditBalance,
         ]);
     }
 
@@ -66,11 +66,11 @@ class CheckoutController extends Controller
                 $total += (float) $item->product->price * $item->quantity;
             }
 
-            $balance = $user->creditTransactions()
+            $creditBalance = $user->creditTransactions()
                 ->lockForUpdate()
                 ->sum('amount');
 
-            if ($balance < $total) {
+            if ($creditBalance < $total) {
                 abort(422, 'Not enough credits available.');
             }
 

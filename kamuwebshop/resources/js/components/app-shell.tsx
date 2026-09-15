@@ -6,7 +6,7 @@ type Props = {
 
 export function AppShell({ children }: Props) {
     return (
-        <div className="flex min-h-screen w-full flex-col bg-[#FAF8F5]">
+        <div className="flex min-h-screen w-full flex-col">
             {children}
         </div>
     );

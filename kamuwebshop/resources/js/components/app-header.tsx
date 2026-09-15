@@ -15,6 +15,15 @@ export function AppHeader() {
     const isLoggedIn = !!auth.user;
     const isAdmin = !!auth.user?.is_admin;
 
+    const [darkMode, setDarkMode] = useState(
+        document.documentElement.classList.contains('dark')
+    )
+
+    const toggleDarkMode = () => {
+        document.documentElement.classList.toggle('dark')
+        setDarkMode(document.documentElement.classList.contains('dark'))
+    }
+
     const handleLanguageChange = (newLocale: 'en' | 'hu') => {
         if (newLocale === locale) return;
 
@@ -31,21 +40,21 @@ export function AppHeader() {
     const closeMenu = () => setMenuOpen(false);
 
     return (
-        <header className="sticky top-0 z-50 border-b border-[#DDD8D0] bg-[rgba(250,248,245,0.92)] backdrop-blur-[10px]">
+        <header className="sticky top-0 z-50 border-b border-[[var(--color-rule)]] backdrop-blur-[10px]">
             <div className="mx-auto flex min-h-[54px] w-full max-w-[1040px] items-center px-8">
 
-                    <Link
-                        href="/"
-                        className="text-lg font-medium tracking-wide text-[#1C1917]"
-                    >
-                        fakewebshop
-                    </Link>
+                <Link
+                    href="/"
+                    className="text-lg font-medium tracking-wide text-[[var(--color-ink)]]"
+                >
+                    fakewebshop
+                </Link>
 
                 {/* Desktop navigation */}
                 <nav className="ml-12 hidden items-center gap-8 md:flex">
                     <Link
                         href="/products"
-                        className="text-[13px] text-[#6B6460] transition-colors hover:text-[#1C1917]"
+                        className="text-[13px] text-[[var(--color-ink-mid)]] transition-colors hover:text-[[var(--color-ink)]]"
                     >
                         {__('Products')}
                     </Link>
@@ -53,7 +62,7 @@ export function AppHeader() {
                     {isLoggedIn && !isAdmin && (
                         <Link
                             href="/credits"
-                            className="text-[13px] text-[#6B6460] transition-colors hover:text-[#1C1917]"
+                            className="text-[13px] text-[[var(--color-ink-mid)]] transition-colors hover:text-[[var(--color-ink)]]"
                         >
                             {__('Credits')}
                         </Link>
@@ -62,7 +71,7 @@ export function AppHeader() {
                     {isAdmin && (
                         <Link
                             href="/admin"
-                            className="text-[13px] text-[#6B6460] transition-colors hover:text-[#1C1917]"
+                            className="text-[13px] text-[[var(--color-ink-mid)]] transition-colors hover:text-[[var(--color-ink)]]"
                         >
                             {__('Dashboard')}
                         </Link>
@@ -72,27 +81,40 @@ export function AppHeader() {
                 {/* Desktop actions */}
                 <div className="ml-auto hidden items-center gap-1 md:flex">
 
-                    {/* Language switcher */}
+                    <button
+                        type="button"
+                        onClick={toggleDarkMode}
+                        aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                        className="relative flex h-7 w-12 cursor-pointer items-center rounded-full border border-[var(--color-rule)] bg-[var(--color-parchment)] p-1 transition-colors"
+                    >
+                        <span
+                            className={`flex size-5 items-center justify-center rounded-full bg-[var(--color-white)] text-[11px] shadow-sm transition-transform ${darkMode ? 'translate-x-5' : 'translate-x-0'
+                                }`}
+                        >
+                            {darkMode ? '☾' : '☀'}
+                        </span>
+                    </button>
+
                     <div className="mr-5 flex items-center gap-1 text-[11px] font-medium tracking-[0.08em]">
                         <button
                             type="button"
                             onClick={() => handleLanguageChange('en')}
                             className={`px-1 py-0.5 transition-colors ${locale === 'en'
-                                ? 'text-[#1C1917]'
-                                : 'text-[#A8A29E] hover:text-[#6B6460]'
+                                ? 'text-[[var(--color-ink)]]'
+                                : 'text-[#A8A29E] hover:text-[[var(--color-ink-mid)]]'
                                 }`}
                         >
                             EN
                         </button>
 
-                        <span className="text-[#DDD8D0]">/</span>
+                        <span className="text-[[var(--color-rule)]]">/</span>
 
                         <button
                             type="button"
                             onClick={() => handleLanguageChange('hu')}
                             className={`px-1 py-0.5 transition-colors ${locale === 'hu'
-                                ? 'text-[#1C1917]'
-                                : 'text-[#A8A29E] hover:text-[#6B6460]'
+                                ? 'text-[[var(--color-ink)]]'
+                                : 'text-[#A8A29E] hover:text-[[var(--color-ink-mid)]]'
                                 }`}
                         >
                             HU
@@ -103,7 +125,7 @@ export function AppHeader() {
                         <>
                             <Link
                                 href="/auth"
-                                className="mr-6 text-[13px] text-[#6B6460] transition-colors hover:text-[#1C1917]"
+                                className="mr-6 text-[13px] text-[[var(--color-ink-mid)]] transition-colors hover:text-[[var(--color-ink)]]"
                             >
                                 {__('Login')}
                             </Link>
@@ -180,7 +202,7 @@ export function AppHeader() {
                 <button
                     type="button"
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="ml-auto flex items-center justify-center p-2 text-[#6B6460] md:hidden"
+                    className="ml-auto flex items-center justify-center p-2 text-[[var(--color-ink-mid)]] md:hidden"
                     aria-label={menuOpen ? __('Close menu') : __('Menu')}
                 >
                     {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -189,13 +211,13 @@ export function AppHeader() {
 
             {/* Mobile menu */}
             {menuOpen && (
-                <nav className="border-t border-[#DDD8D0] bg-[#FAF8F5] px-8 py-4 md:hidden">
+                <nav className="border-t border-[[var(--color-rule)]] bg-[[var(--color-white)]] px-8 py-4 md:hidden">
                     <div className="flex flex-col gap-4">
 
                         <Link
                             href="/products"
                             onClick={closeMenu}
-                            className="text-sm text-[#6B6460] hover:text-[#1C1917]"
+                            className="text-sm text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]]"
                         >
                             {__('Products')}
                         </Link>
@@ -204,7 +226,7 @@ export function AppHeader() {
                             <Link
                                 href="/credits"
                                 onClick={closeMenu}
-                                className="text-sm text-[#6B6460] hover:text-[#1C1917]"
+                                className="text-sm text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]]"
                             >
                                 {__('Credits')}
                             </Link>
@@ -215,7 +237,7 @@ export function AppHeader() {
                                 <Link
                                     href="/dashboard"
                                     onClick={closeMenu}
-                                    className="text-sm text-[#6B6460] hover:text-[#1C1917]"
+                                    className="text-sm text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]]"
                                 >
                                     {__('Dashboard')}
                                 </Link>
@@ -225,7 +247,7 @@ export function AppHeader() {
                                     method="post"
                                     as="button"
                                     onClick={closeMenu}
-                                    className="text-left text-sm text-[#6B6460] hover:text-[#1C1917]"
+                                    className="text-left text-sm text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]]"
                                 >
                                     {__('Logout')}
                                 </Link>
@@ -235,7 +257,7 @@ export function AppHeader() {
                                 <Link
                                     href="/profile"
                                     onClick={closeMenu}
-                                    className="text-sm text-[#6B6460] hover:text-[#1C1917]"
+                                    className="text-sm text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]]"
                                 >
                                     {__('Profile')}
                                 </Link>
@@ -243,7 +265,7 @@ export function AppHeader() {
                                 <Link
                                     href="/cart"
                                     onClick={closeMenu}
-                                    className="text-sm text-[#6B6460] hover:text-[#1C1917]"
+                                    className="text-sm text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]]"
                                 >
                                     {__('Cart')}
                                 </Link>
@@ -253,7 +275,7 @@ export function AppHeader() {
                                     method="post"
                                     as="button"
                                     onClick={closeMenu}
-                                    className="text-left text-sm text-[#6B6460] hover:text-[#1C1917]"
+                                    className="text-left text-sm text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]]"
                                 >
                                     {__('Logout')}
                                 </Link>
@@ -263,7 +285,7 @@ export function AppHeader() {
                                 <Link
                                     href="/auth"
                                     onClick={closeMenu}
-                                    className="text-sm text-[#6B6460] hover:text-[#1C1917]"
+                                    className="text-sm text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]]"
                                 >
                                     {__('Login')}
                                 </Link>
@@ -271,38 +293,57 @@ export function AppHeader() {
                                 <Link
                                     href="/cart"
                                     onClick={closeMenu}
-                                    className="text-sm text-[#6B6460] hover:text-[#1C1917]"
+                                    className="text-sm text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]]"
                                 >
                                     {__('Cart')}
                                 </Link>
                             </>
                         )}
 
-                        {/* Mobile language switcher */}
-                        <div className="mt-1 flex items-center gap-1 border-t border-[#DDD8D0] pt-4 text-[11px] font-medium tracking-[0.08em]">
-                            <button
-                                type="button"
-                                onClick={() => handleLanguageChange('en')}
-                                className={`px-1 py-0.5 transition-colors ${locale === 'en'
-                                    ? 'text-[#1C1917]'
-                                    : 'text-[#A8A29E] hover:text-[#6B6460]'
-                                    }`}
-                            >
-                                EN
-                            </button>
+                        <div className="mt-1 border-t border-[[var(--color-rule)]] pt-4 text-[11px] font-medium tracking-[0.08em]">
 
-                            <span className="text-[#DDD8D0]">/</span>
+                            <div className="flex items-center">
+                                <button
+                                    type="button"
+                                    onClick={toggleDarkMode}
+                                    aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                                    className="relative flex h-7 w-12 cursor-pointer items-center rounded-full border border-[var(--color-rule)] bg-[var(--color-parchment)] p-1 transition-colors"
+                                >
+                                    <span
+                                        className={`flex size-5 items-center justify-center rounded-full bg-[var(--color-white)] text-[11px] shadow-sm transition-transform ${darkMode ? 'translate-x-5' : 'translate-x-0'
+                                            }`}
+                                    >
+                                        {darkMode ? '☾' : '☀'}
+                                    </span>
+                                </button>
+                            </div>
 
-                            <button
-                                type="button"
-                                onClick={() => handleLanguageChange('hu')}
-                                className={`px-1 py-0.5 transition-colors ${locale === 'hu'
-                                    ? 'text-[#1C1917]'
-                                    : 'text-[#A8A29E] hover:text-[#6B6460]'
-                                    }`}
-                            >
-                                HU
-                            </button>
+                            <div className="mt-2 flex items-center gap-1">
+                                <button
+                                    type="button"
+                                    onClick={() => handleLanguageChange('en')}
+                                    className={`px-1 py-0.5 transition-colors ${locale === 'en'
+                                            ? 'text-[[var(--color-ink)]]'
+                                            : 'text-[#A8A29E] hover:text-[[var(--color-ink-mid)]]'
+                                        }`}
+                                >
+                                    EN
+                                </button>
+
+                                <span className="text-[[var(--color-rule)]]">/</span>
+
+                                <button
+                                    type="button"
+                                    onClick={() => handleLanguageChange('hu')}
+                                    className={`px-1 py-0.5 transition-colors ${locale === 'hu'
+                                            ? 'text-[[var(--color-ink)]]'
+                                            : 'text-[#A8A29E] hover:text-[[var(--color-ink-mid)]]'
+                                        }`}
+                                >
+                                    HU
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                 </nav>

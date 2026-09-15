@@ -4,16 +4,16 @@ import { SectionLabel } from '@/components/section-label';
 import { router } from '@inertiajs/react';
 
 interface CreditsProps {
-    balance: number;
+    creditBalance: number;
 }
 
 interface CreditsProps {
-    balance: number;
+    creditBalance: number;
     claimedToday: boolean;
 }
 
 
-export default function Credits({ balance, claimedToday }: CreditsProps) {
+export default function Credits({ creditBalance, claimedToday }: CreditsProps) {
     const { __ } = useTranslations();
 
     return (
@@ -36,7 +36,7 @@ export default function Credits({ balance, claimedToday }: CreditsProps) {
                             </div>
 
                             <div className="mt-1 text-[30px] font-semibold text-[var(--color-ink)]">
-                                {balance}
+                                {creditBalance}
                             </div>
                         </div>
                     </div>
