@@ -3,6 +3,9 @@ import { XIcon } from "lucide-react"
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { useTranslations } from "@/hooks/useTranslation";
+
+const { __ } = useTranslations();
 
 function Sheet({
   ...props
@@ -53,7 +56,7 @@ function SheetContent({
           className="absolute right-5 top-5 text-[var(--color-ink-mid)] transition-colors hover:text-[var(--color-ink)]"
         >
           <XIcon className="size-5" />
-          <span className="sr-only">Close</span>
+          <span className="sr-only">{__('Close')}</span>
         </SheetPrimitive.Close>
       </SheetPrimitive.Content>
     </SheetPrimitive.Portal>

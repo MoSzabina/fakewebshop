@@ -16,7 +16,7 @@
             <title>{{ config('app.name', 'kamuwebshop') }}</title>
         </x-inertia::head>
     </head>
-    <body class="font-sans antialiased">
+    <body class="antialiased">
         <x-inertia::app />
     </body>
 </html>

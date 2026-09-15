@@ -27,7 +27,7 @@ export default function PasswordInput({
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}
                 className="absolute inset-y-0 right-0 flex items-center px-3 text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]] focus-visible:outline-none"
-                aria-label={showPassword ? 'Jelszó elrejtése' : 'Jelszó megjelenítése'}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
                 {showPassword ? (
                     <EyeOff className="size-4" />
