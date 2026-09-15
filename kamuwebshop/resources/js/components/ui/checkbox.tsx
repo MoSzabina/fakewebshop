@@ -10,9 +10,9 @@ function Checkbox({
     <input
       type="checkbox"
       className={cn(
-        "size-[18px] shrink-0 cursor-pointer appearance-none rounded-[3px] border border-[#DDD8D0] bg-transparent outline-none transition-colors",
-        "checked:border-[#6B7C65] checked:bg-[#6B7C65]",
-        "focus-visible:border-[#1C1917]",
+        "size-[18px] shrink-0 cursor-pointer appearance-none rounded-[3px] border border-[[var(--color-rule)]] bg-transparent outline-none transition-colors",
+        "checked:border-[[var(--color-sage)]] checked:bg-[[var(--color-sage)]]",
+        "focus-visible:border-[[var(--color-ink)]]",
         "disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}

@@ -21,18 +21,18 @@ export function Breadcrumbs({
                 return (
                     <div key={index} className="flex items-center gap-2">
                         {isLast ? (
-                            <span className="text-[#1C1917]">
+                            <span className="text-[[var(--color-ink)]]">
                                 {item.title}
                             </span>
                         ) : (
                             <>
                                 <Link
                                     href={item.href}
-                                    className="text-[#6B6460] transition-colors hover:text-[#1C1917]"
+                                    className="text-[[var(--color-ink-mid)]] transition-colors hover:text-[[var(--color-ink)]]"
                                 >
                                     {item.title}
                                 </Link>
-                                <span className="text-[#6B6460]">/</span>
+                                <span className="text-[[var(--color-ink-mid)]]">/</span>
                             </>
                         )}
                     </div>

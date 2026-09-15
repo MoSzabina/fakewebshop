@@ -111,7 +111,7 @@ export default function Admin({
                             <ResponsiveContainer width="100%" height="100%">
                                 <AreaChart data={salesData}>
                                     <CartesianGrid
-                                        stroke="rgba(28,25,23,0.08)"
+                                        stroke="var(--color-ink)"
                                         vertical={false}
                                     />
 
@@ -119,7 +119,7 @@ export default function Admin({
                                         dataKey="month"
                                         tick={{
                                             fontSize: 11,
-                                            fill: '#6B6460',
+                                            fill: 'var(--color-ink-mid)',
                                         }}
                                         axisLine={false}
                                         tickLine={false}
@@ -128,7 +128,7 @@ export default function Admin({
                                     <YAxis
                                         tick={{
                                             fontSize: 11,
-                                            fill: '#6B6460',
+                                            fill: 'var(--color-ink-mid)',
                                         }}
                                         axisLine={false}
                                         tickLine={false}
@@ -139,8 +139,8 @@ export default function Admin({
                                     <Area
                                         type="monotone"
                                         dataKey="revenue"
-                                        stroke="#6B7C65"
-                                        fill="#E8EDE7"
+                                        stroke="var(--color-sage)"
+                                        fill="var(--color-white)"
                                         strokeWidth={2}
                                     />
                                 </AreaChart>
@@ -173,7 +173,7 @@ export default function Admin({
                                         tickFormatter={(value) => `${value}%`}
                                         tick={{
                                             fontSize: 10,
-                                            fill: '#6B6460',
+                                            fill: 'var(--color-ink-mid)',
                                         }}
                                         axisLine={false}
                                         tickLine={false}
@@ -185,7 +185,7 @@ export default function Admin({
                                         width={75}
                                         tick={{
                                             fontSize: 10,
-                                            fill: '#6B6460',
+                                            fill: 'var(--color-ink-mid)',
                                         }}
                                         axisLine={false}
                                         tickLine={false}
@@ -197,7 +197,7 @@ export default function Admin({
 
                                     <Bar
                                         dataKey="value"
-                                        fill="#6B7C65"
+                                        fill="var(--color-sage)"
                                         barSize={10}
                                         radius={[0, 2, 2, 0]}
                                     />
@@ -220,7 +220,7 @@ export default function Admin({
                         <ResponsiveContainer width="100%" height="100%">
                             <LineChart data={salesData}>
                                 <CartesianGrid
-                                    stroke="rgba(28,25,23,0.08)"
+                                    stroke="var(--color-ink)"
                                     vertical={false}
                                 />
 
@@ -228,7 +228,7 @@ export default function Admin({
                                     dataKey="month"
                                     tick={{
                                         fontSize: 11,
-                                        fill: '#6B6460',
+                                        fill: 'var(--color-ink-mid)',
                                     }}
                                     axisLine={false}
                                     tickLine={false}
@@ -237,7 +237,7 @@ export default function Admin({
                                 <YAxis
                                     tick={{
                                         fontSize: 11,
-                                        fill: '#6B6460',
+                                        fill: 'var(--color-ink-mid)',
                                     }}
                                     axisLine={false}
                                     tickLine={false}
@@ -248,7 +248,7 @@ export default function Admin({
                                 <Line
                                     type="monotone"
                                     dataKey="orders"
-                                    stroke="#6B7C65"
+                                    stroke="var(--color-sage)"
                                     strokeWidth={2}
                                     dot={{ r: 3 }}
                                 />

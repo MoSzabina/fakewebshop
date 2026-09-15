@@ -10,22 +10,22 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#1C1917] text-[#FAF8F5] border-0 hover:bg-[#333]",
-        
+          "bg-[var(--color-ink)] text-[var(--color-white)] border-0 hover:bg-[var(--color-ink-mid)]",
+
         secondary:
-          "bg-[#6B7C65] text-[#FAF8F5] border-0 hover:bg-[#5A6955]",
+          "bg-[var(--color-sage)] text-[var(--color-white)] border-0 hover:bg-[var(--color-sage)]",
 
         outline:
-          "bg-transparent text-[#1C1917] border-[1.5px] border-[#1C1917] hover:bg-[#1C1917] hover:text-[#FAF8F5]",
+          "bg-transparent text-[var(--color-ink)] border-[1.5px] border-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-[var(--color-white)]",
 
         muted:
-          "bg-transparent text-[#6B6460] border-[1.5px] border-[#DDD8D0] hover:text-[#1C1917] hover:border-[#6B6460]",
+          "bg-transparent text-[var(--color-ink-mid)] border-[1.5px] border-[var(--color-rule)] hover:text-[var(--color-ink)] hover:border-[var(--color-ink-mid)]",
 
         link:
-          "bg-transparent text-[#1C1917] border-0 underline underline-offset-[3px] px-0 py-0 hover:no-underline",
+          "bg-transparent text-[var(--color-ink)] border-0 underline underline-offset-[3px] px-0 py-0 hover:no-underline",
 
         destructive:
-          "bg-[#1C1917] text-white border-0 hover:bg-destructive/90",
+          "bg-[var(--color-ink)] text-[var(--color-white)] border-0 hover:bg-[var(--color-ink-mid)]",
       },
 
       size: {

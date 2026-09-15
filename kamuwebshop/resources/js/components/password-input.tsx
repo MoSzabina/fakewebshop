@@ -26,7 +26,7 @@ export default function PasswordInput({
             <button
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}
-                className="absolute inset-y-0 right-0 flex items-center px-3 text-[#6B6460] hover:text-[#1C1917] focus-visible:outline-none"
+                className="absolute inset-y-0 right-0 flex items-center px-3 text-[[var(--color-ink-mid)]] hover:text-[[var(--color-ink)]] focus-visible:outline-none"
                 aria-label={showPassword ? 'Jelszó elrejtése' : 'Jelszó megjelenítése'}
             >
                 {showPassword ? (
