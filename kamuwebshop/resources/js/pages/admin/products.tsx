@@ -1,9 +1,9 @@
-import { ReactNode, useState } from 'react'
-import { Plus, Search } from 'lucide-react'
-import AdminLayout from '@/layouts/admin-layout'
-import { Button } from '@/components/ui/button';
 import { Link, Form } from '@inertiajs/react';
+import { Plus, Search } from 'lucide-react'
 import { Pencil, Trash2 } from 'lucide-react'
+import { useState } from 'react'
+import type { ReactNode} from 'react';
+import { Button } from '@/components/ui/button';
 import {
     Dialog,
     DialogClose,
@@ -14,6 +14,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog'
+import AdminLayout from '@/layouts/admin-layout'
 
 interface Product {
     id: number

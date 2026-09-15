@@ -1,9 +1,9 @@
+import { useForm } from '@inertiajs/react';
+import PasswordInput from '@/components/password-input';
 import { SectionLabel } from '@/components/section-label';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import PasswordInput from '@/components/password-input';
-import { useForm } from '@inertiajs/react';
 import { useTranslations } from '@/hooks/useTranslation';
 
 export default function Auth() {

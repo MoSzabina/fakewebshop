@@ -1,7 +1,7 @@
-import { Gift, Gamepad2, CalendarDays, Sparkles } from 'lucide-react';
-import { useTranslations } from '@/hooks/useTranslation';
-import { SectionLabel } from '@/components/section-label';
 import { router } from '@inertiajs/react';
+import { Gift, Gamepad2, CalendarDays, Sparkles } from 'lucide-react';
+import { SectionLabel } from '@/components/section-label';
+import { useTranslations } from '@/hooks/useTranslation';
 
 interface CreditsProps {
     creditBalance: number;

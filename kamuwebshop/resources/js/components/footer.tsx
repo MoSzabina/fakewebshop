@@ -3,6 +3,7 @@ import { useTranslations } from '@/hooks/useTranslation';
 
 export function Footer() {
     const { __ } = useTranslations();
+
     return (
         <footer className="border-t border-[var(--color-rule)] bg-[var(--color-parchment)]">
             <div className="mx-auto w-full max-w-[1040px] px-8 pt-8">

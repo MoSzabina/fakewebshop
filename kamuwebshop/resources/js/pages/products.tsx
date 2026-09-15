@@ -34,6 +34,7 @@ export default function Products({
             if (selectedCategory === 'all') {
                 return true;
             }
+
             return product.category.id === Number(selectedCategory);
         })
         .sort((a, b) => {

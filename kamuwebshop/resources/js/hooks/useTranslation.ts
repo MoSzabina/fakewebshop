@@ -1,5 +1,5 @@
-import { type SharedData } from '@/types';
 import { usePage } from '@inertiajs/react';
+import type {SharedData} from '@/types';
 
 export function useTranslations() {
     const { translations, locale } = usePage<SharedData>().props;
@@ -8,8 +8,10 @@ export function useTranslations() {
         Object.keys(replacements).forEach((r) => {
             translation = translation.replace(`:${r}`, replacements[r]);
         });
+
         return translation;
     };
+
     return {
         __,
         trans: __,

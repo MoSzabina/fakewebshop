@@ -1,7 +1,7 @@
 import { Form } from '@inertiajs/react'
-import { useState, type ReactNode } from 'react'
 import { Eye, Save, Search } from 'lucide-react'
-import AdminLayout from '@/layouts/admin-layout'
+import { useState  } from 'react'
+import type {ReactNode} from 'react';
 import { Button } from '@/components/ui/button'
 import {
     Dialog,
@@ -14,6 +14,7 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
+import AdminLayout from '@/layouts/admin-layout'
 
 interface OrderItem {
     id: number

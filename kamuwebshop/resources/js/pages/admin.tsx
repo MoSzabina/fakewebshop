@@ -1,6 +1,5 @@
-import AdminLayout from '@/layouts/admin-layout'
 import { BarChart3 } from 'lucide-react'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import {
     Area,
     AreaChart,
@@ -14,6 +13,7 @@ import {
     XAxis,
     YAxis,
 } from 'recharts'
+import AdminLayout from '@/layouts/admin-layout'
 
 const currDate = new Date().toLocaleDateString();
 

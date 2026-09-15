@@ -25,7 +25,9 @@ export function AppHeader() {
     }
 
     const handleLanguageChange = (newLocale: 'en' | 'hu') => {
-        if (newLocale === locale) return;
+        if (newLocale === locale) {
+return;
+}
 
         router.post(
             '/locale',

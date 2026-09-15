@@ -58,6 +58,7 @@ export default function Cart({ cart }: CartProps) {
     const handleCheckout = () => {
         if (!auth.user) {
             setShowLoginPrompt(true);
+
             return;
         }
 

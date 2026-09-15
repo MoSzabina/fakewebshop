@@ -4,6 +4,7 @@ import { useTranslations } from '@/hooks/useTranslation';
 
 export default function About() {
     const { __ } = useTranslations();
+
     return (
         <>
 

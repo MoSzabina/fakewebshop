@@ -1,8 +1,8 @@
 import { Link, router } from '@inertiajs/react';
 
+import { SectionLabel } from '@/components/section-label';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/ui/product-card';
-import { SectionLabel } from '@/components/section-label';
 import { useTranslations } from '@/hooks/useTranslation';
 
 interface Product {

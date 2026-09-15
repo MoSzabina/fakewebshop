@@ -1,10 +1,11 @@
 import { Head, Link } from '@inertiajs/react';
-import { Button } from '@/components/ui/button';
 import { SectionLabel } from '@/components/section-label';
+import { Button } from '@/components/ui/button';
 import { useTranslations } from '@/hooks/useTranslation';
 
 export default function Home() {
     const { __ } = useTranslations();
+
     return (
         <>
             <Head title="fakewebshop" />

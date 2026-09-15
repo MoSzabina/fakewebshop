@@ -4,6 +4,7 @@ import { useTranslations } from "@/hooks/useTranslation";
 export default function Privacy() {
 
     const { __ } = useTranslations();
+
     return (
         <>
             <section className="py-12">

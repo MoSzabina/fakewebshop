@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { useForm } from '@inertiajs/react';
 import { FaceGrinning } from 'lucide-react';
+import { useState } from 'react';
 
-import { Button } from '@/components/ui/button';
-import { SectionLabel } from '@/components/section-label';
 import PasswordInput from '@/components/password-input';
+import { SectionLabel } from '@/components/section-label';
+import { Button } from '@/components/ui/button';
 import { useTranslations } from '@/hooks/useTranslation';
 
 interface User {
