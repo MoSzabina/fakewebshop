@@ -6,6 +6,9 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CreditController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\OverviewController;
 
 Route::post('/locale', [LocaleController::class, 'change'])
     ->name('locale.change');
@@ -62,7 +65,41 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::inertia('/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/admin', [OverviewController::class, 'index'])
+    ->name('admin');
+
+    Route::get('/admin/products', [ProductController::class, 'adminIndex'])
+    ->name('admin.products');
+
+    Route::get('/admin/products/create', [ProductController::class, 'create'])
+    ->name('admin.products.create');
+
+    Route::post('/admin/products', [ProductController::class, 'store'])
+    ->name('admin.products.store');
+
+    Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])
+    ->name('admin.products.edit');
+
+    Route::patch('/admin/products/{product}', [ProductController::class, 'update'])
+    ->name('admin.products.update');
+
+    Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])
+    ->name('admin.products.destroy');
+
+    Route::get('/admin/users', [UserController::class, 'adminIndex'])
+    ->name('admin.users');
+
+    Route::post('/admin/users/{user}/credits', [UserController::class, 'addCredits'])
+    ->name('admin.users.credits');
+
+    Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])
+    ->name('admin.users.destroy');
+
+    Route::get('/admin/orders', [OrderController::class, 'adminIndex'])
+    ->name('admin.orders');
+
+    Route::patch('/admin/orders/{order}/status', [OrderController::class, 'updateStatus'])
+    ->name('admin.orders.status');
 });
 
 require __DIR__.'/profile.php';

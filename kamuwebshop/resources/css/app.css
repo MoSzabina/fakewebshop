@@ -113,6 +113,8 @@ table th {
     font-weight: var(--font-weight-medium);
     color: var(--color-ink-mid);
     letter-spacing: 0.08em;
+    background-color: var(--color-sage);
+    color: var(--color-white);
 }
 
 table td {

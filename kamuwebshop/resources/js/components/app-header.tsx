@@ -34,15 +34,12 @@ export function AppHeader() {
         <header className="sticky top-0 z-50 border-b border-[#DDD8D0] bg-[rgba(250,248,245,0.92)] backdrop-blur-[10px]">
             <div className="mx-auto flex min-h-[54px] w-full max-w-[1040px] items-center px-8">
 
-                {/* Logo */}
-                {!isAdmin && (
                     <Link
                         href="/"
                         className="text-lg font-medium tracking-wide text-[#1C1917]"
                     >
                         fakewebshop
                     </Link>
-                )}
 
                 {/* Desktop navigation */}
                 <nav className="ml-12 hidden items-center gap-8 md:flex">
@@ -64,7 +61,7 @@ export function AppHeader() {
 
                     {isAdmin && (
                         <Link
-                            href="/dashboard"
+                            href="/admin"
                             className="text-[13px] text-[#6B6460] transition-colors hover:text-[#1C1917]"
                         >
                             {__('Dashboard')}
