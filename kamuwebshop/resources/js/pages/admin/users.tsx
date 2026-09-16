@@ -1,10 +1,9 @@
 import { Form, Link } from '@inertiajs/react'
 import { Search, Trash2 } from 'lucide-react'
-import { ReactNode, useState } from 'react'
+import type { ReactNode} from 'react';
+import { useState } from 'react'
 
-import AdminLayout from '@/layouts/admin-layout'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import {
     Dialog,
     DialogClose,
@@ -15,6 +14,8 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
+import AdminLayout from '@/layouts/admin-layout'
 
 type User = {
     id: number
@@ -49,7 +50,7 @@ export default function Users({ users }: Props) {
             <div className="relative mb-5 w-full max-w-sm">
                 <Search
                     size={16}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-ink-mid)]"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-mid"
                 />
                 <Input
                     value={search}

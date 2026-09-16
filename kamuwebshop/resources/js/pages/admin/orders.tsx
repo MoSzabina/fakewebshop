@@ -1,7 +1,7 @@
 import { Form } from '@inertiajs/react'
-import { useState, type ReactNode } from 'react'
 import { Eye, Save, Search } from 'lucide-react'
-import AdminLayout from '@/layouts/admin-layout'
+import { useState  } from 'react'
+import type {ReactNode} from 'react';
 import { Button } from '@/components/ui/button'
 import {
     Dialog,
@@ -14,6 +14,7 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
+import AdminLayout from '@/layouts/admin-layout'
 
 interface OrderItem {
     id: number
@@ -77,7 +78,7 @@ export default function Orders({
             <div className="relative mb-5 w-full max-w-sm">
                 <Search
                     size={16}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-ink-mid)]"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-mid"
                 />
                 <Input
                     value={search}

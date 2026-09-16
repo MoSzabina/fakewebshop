@@ -1,9 +1,9 @@
 import { Form, Head } from '@inertiajs/react'
-import AdminLayout from '@/layouts/admin-layout'
+import type { ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { ReactNode } from 'react'
+import AdminLayout from '@/layouts/admin-layout'
 
 interface Category {
     id: number
@@ -19,7 +19,7 @@ export default function AddProduct({ categories }: AddProductProps) {
         <AdminLayout>
             <Head title="Add Product" />
 
-            <div className="p-8 rounded-md bg-[var(--color-sage)]">
+            <div className="p-8 rounded-md bg-sage">
                 <h1>Add Product</h1>
 
                 <Form
@@ -43,7 +43,7 @@ export default function AddProduct({ categories }: AddProductProps) {
                             <div>
                                 <Label htmlFor="category_id">Category</Label>
 
-                                <select className="rounded-[3px] border-[1.5px] border-[var(--color-rule)] bg-[var(--color-white)] px-3 py-2 text-[14px] text-[var(--color-ink)] outline-none focus:border-[var(--color-ink)]"
+                                <select className="rounded-[3px] border-[1.5px] border-rule bg-white px-3 py-2 text-[14px] text-ink outline-none focus:border-ink"
                                     id="category_id"
                                     name="category_id"
                                     defaultValue=""
@@ -99,7 +99,7 @@ export default function AddProduct({ categories }: AddProductProps) {
                                 <textarea
                                     id="description"
                                     name="description"
-                                    className="w-full resize-none rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] px-4 py-3 text-[14px] text-[var(--color-ink)] outline-none transition-colors placeholder:text-[var(--color-ink-mid)] focus:border-[var(--color-ink)]"
+                                    className="w-full resize-none rounded border border-rule bg-white px-4 py-3 text-[14px] text-ink outline-none transition-colors placeholder:text-ink-mid focus:border-ink"
 
                                 />
 

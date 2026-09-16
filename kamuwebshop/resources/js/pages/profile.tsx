@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { useForm } from '@inertiajs/react';
 import { FaceGrinning } from 'lucide-react';
+import { useState } from 'react';
 
-import { Button } from '@/components/ui/button';
-import { SectionLabel } from '@/components/section-label';
 import PasswordInput from '@/components/password-input';
+import { SectionLabel } from '@/components/section-label';
+import { Button } from '@/components/ui/button';
 import { useTranslations } from '@/hooks/useTranslation';
 
 interface User {
@@ -105,20 +105,20 @@ export default function Profile({
                         </SectionLabel>
 
                         <div className="mt-5 flex flex-col items-center text-center">
-                            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-sage-light)] text-[var(--color-sage)]">
+                            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-sage-light text-sage">
                                 <FaceGrinning size={42} strokeWidth={1.5} />
                             </div>
 
                             <div className="mt-6 w-full max-w-[500px] space-y-4">
-                                <div className="border-b border-[var(--color-rule)] pb-3 text-[14px] text-[var(--color-ink)]">
+                                <div className="border-b border-rule pb-3 text-[14px] text-ink">
                                     {user.username}
                                 </div>
 
-                                <div className="border-b border-[var(--color-rule)] pb-3 text-[14px] text-[var(--color-ink)]">
+                                <div className="border-b border-rule pb-3 text-[14px] text-ink">
                                     {user.email}
                                 </div>
 
-                                <div className="border-b border-[var(--color-rule)] pb-3 text-[14px] text-[var(--color-ink-mid)]">
+                                <div className="border-b border-rule pb-3 text-[14px] text-ink-mid">
                                     {user.shipping || '—'}
                                 </div>
                             </div>
@@ -155,7 +155,7 @@ export default function Profile({
                                         placeholder={__(
                                             'Enter your shipping address',
                                         )}
-                                        className="w-full resize-none rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] px-4 py-3 text-[14px] text-[var(--color-ink)] outline-none transition-colors placeholder:text-[var(--color-ink-mid)] focus:border-[var(--color-ink)]"
+                                        className="w-full resize-none rounded border border-rule bg-white px-4 py-3 text-[14px] text-ink outline-none transition-colors placeholder:text-ink-mid focus:border-ink"
                                     />
 
                                     {profileForm.errors.shipping && (
@@ -193,13 +193,13 @@ export default function Profile({
                             {__('Credit balance')}
                         </SectionLabel>
 
-                        <div className="mt-5 rounded-[4px] bg-[var(--color-sage-light)] p-6">
+                        <div className="mt-5 rounded bg-sage-light p-6">
 
-                            <div className="mt-2 text-[32px] font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
+                            <div className="mt-2 text-[32px] font-semibold tracking-[-0.03em] text-ink">
                                 {Number(creditBalance).toFixed(2)}
                             </div>
 
-                            <div className="mt-6 border-t border-[var(--color-rule)] pt-5">
+                            <div className="mt-6 border-t border-rule pt-5">
 
                                 <div className="space-y-3">
                                     {creditTransactions
@@ -209,13 +209,13 @@ export default function Profile({
                                                 key={transaction.id}
                                                 className="flex items-center justify-between text-[13px]"
                                             >
-                                                <span className="text-[var(--color-ink-mid)]">
+                                                <span className="text-ink-mid">
                                                     {new Date(
                                                         transaction.created_at,
                                                     ).toLocaleDateString()}
                                                 </span>
 
-                                                <span className="text-[var(--color-ink)]">
+                                                <span className="text-ink">
                                                     {transaction.amount > 0
                                                         ? '+'
                                                         : ''}
@@ -225,7 +225,7 @@ export default function Profile({
                                         ))}
 
                                     {creditTransactions.length === 0 && (
-                                        <div className="text-[13px] text-[var(--color-ink-mid)]">
+                                        <div className="text-[13px] text-ink-mid">
                                             {__(
                                                 'No credit transactions yet.',
                                             )}
@@ -256,19 +256,19 @@ export default function Profile({
 
                     <div className="mt-5">
                         {orders.length === 0 ? (
-                            <p className="text-[14px] text-[var(--color-ink-mid)]">
+                            <p className="text-[14px] text-ink-mid">
                                 {__('No purchased items yet')}
                             </p>
                         ) : (
                             <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4">
                                 {orders.flatMap((order) => order.items.map((item) => (<div key={`${order.id}-${item.id}`}>
-                                    <div className="aspect-square overflow-hidden rounded-[4px] bg-[var(--color-sage-light)]">
-                                        {item.product.image ? (<img src={item.product.image.startsWith('/') ? item.product.image : `/${item.product.image}`} alt={item.product.name} className="h-full w-full object-cover" />) : (<div className="flex h-full items-center justify-center text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
+                                    <div className="aspect-square overflow-hidden rounded bg-sage-light">
+                                        {item.product.image ? (<img src={item.product.image.startsWith('/') ? item.product.image : `/${item.product.image}`} alt={item.product.name} className="h-full w-full object-cover" />) : (<div className="flex h-full items-center justify-center text-[11px] font-medium tracking-[0.08em] text-sage">
                                             PRODUCT IMAGE </div>)}
                                     </div>
                                     <div className="mt-2">
-                                        <p className="text-[13px] font-medium text-[var(--color-ink)]"> {__(item.product.name)} </p>
-                                        <p className="mt-1 text-[12px] text-[var(--color-ink-mid)]"> × {item.quantity} </p>
+                                        <p className="text-[13px] font-medium text-ink"> {__(item.product.name)} </p>
+                                        <p className="mt-1 text-[12px] text-ink-mid"> × {item.quantity} </p>
                                     </div>
                                 </div>)),)}
                             </div>
@@ -283,12 +283,12 @@ export default function Profile({
 
                     <div className="mt-5">
                         {orders.length === 0 ? (
-                            <p className="text-[14px] text-[var(--color-ink-mid)]">
+                            <p className="text-[14px] text-ink-mid">
                                 {__('You have no orders yet.')}
                             </p>
                         ) : (
-                            <div className="overflow-hidden rounded-[4px] border border-[var(--color-rule)]">
-                                <div className="hidden grid-cols-[1fr_1fr_1fr_1fr] gap-4 border-b border-[var(--color-rule)] bg-[var(--color-sage-light)] px-5 py-3 text-[11px] font-medium tracking-[0.08em] text-[var(--color-ink-mid)] md:grid">
+                            <div className="overflow-hidden rounded border border-rule">
+                                <div className="hidden grid-cols-[1fr_1fr_1fr_1fr] gap-4 border-b border-rule bg-sage-light px-5 py-3 text-[11px] font-medium tracking-[0.08em] text-ink-mid md:grid">
                                     <span>{__('Order')}</span>
                                     <span>{__('Date')}</span>
                                     <span>{__('Status')}</span>
@@ -300,23 +300,23 @@ export default function Profile({
                                 {orders.map((order) => (
                                     <div
                                         key={order.id}
-                                        className="grid gap-2 border-b border-[var(--color-rule)] px-5 py-4 last:border-b-0 md:grid-cols-[1fr_1fr_1fr_1fr] md:items-center md:gap-4"
+                                        className="grid gap-2 border-b border-rule px-5 py-4 last:border-b-0 md:grid-cols-[1fr_1fr_1fr_1fr] md:items-center md:gap-4"
                                     >
-                                        <span className="text-[13px] font-medium text-[var(--color-ink)]">
+                                        <span className="text-[13px] font-medium text-ink">
                                             #{order.id}
                                         </span>
 
-                                        <span className="text-[13px] text-[var(--color-ink-mid)]">
+                                        <span className="text-[13px] text-ink-mid">
                                             {new Date(
                                                 order.created_at,
                                             ).toLocaleDateString()}
                                         </span>
 
-                                        <span className="text-[13px] capitalize text-[var(--color-ink-mid)]">
+                                        <span className="text-[13px] capitalize text-ink-mid">
                                             {__(order.status)}
                                         </span>
 
-                                        <span className="text-[13px] text-[var(--color-ink)] md:text-right">
+                                        <span className="text-[13px] text-ink md:text-right">
                                             {order.total_price}
                                         </span>
                                     </div>
@@ -338,7 +338,7 @@ export default function Profile({
                         <div>
                             <label
                                 htmlFor="current-password"
-                                className="text-[13px] text-[var(--color-ink)]"
+                                className="text-[13px] text-ink"
                             >
                                 {__('Current password')}
                             </label>
@@ -369,7 +369,7 @@ export default function Profile({
                         <div>
                             <label
                                 htmlFor="new-password"
-                                className="text-[13px] text-[var(--color-ink)]"
+                                className="text-[13px] text-ink"
                             >
                                 {__('New password')}
                             </label>
@@ -398,7 +398,7 @@ export default function Profile({
                         <div>
                             <label
                                 htmlFor="password-confirmation"
-                                className="text-[13px] text-[var(--color-ink)]"
+                                className="text-[13px] text-ink"
                             >
                                 {__('Confirm new password')}
                             </label>
@@ -449,11 +449,11 @@ export default function Profile({
                     onClick={() => setShowCreditHistory(false)}
                 >
                     <div
-                        className="w-full max-w-[520px] rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] p-6 shadow-[0_8px_40px_rgba(28,25,23,0.15)]"
+                        className="w-full max-w-[520px] rounded border border-rule bg-white p-6 shadow-[0_8px_40px_rgba(28,25,23,0.15)]"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex items-center justify-between">
-                            <h2 className="text-[20px] font-semibold text-[var(--color-ink)]">
+                            <h2 className="text-[20px] font-semibold text-ink">
                                 {__('Credit history')}
                             </h2>
 
@@ -462,7 +462,7 @@ export default function Profile({
                                 onClick={() =>
                                     setShowCreditHistory(false)
                                 }
-                                className="text-[22px] leading-none text-[var(--color-ink-mid)] transition-colors hover:text-[var(--color-ink)]"
+                                className="text-[22px] leading-none text-ink-mid transition-colors hover:text-ink"
                                 aria-label={__('Close')}
                             >
                                 ×
@@ -471,7 +471,7 @@ export default function Profile({
 
                         <div className="mt-6 max-h-[400px] overflow-y-auto pr-2">
                             {creditTransactions.length === 0 ? (
-                                <p className="text-[14px] text-[var(--color-ink-mid)]">
+                                <p className="text-[14px] text-ink-mid">
                                     {__(
                                         'No credit transactions yet.',
                                     )}
@@ -482,23 +482,23 @@ export default function Profile({
                                         (transaction) => (
                                             <div
                                                 key={transaction.id}
-                                                className="flex items-center justify-between border-b border-[var(--color-rule)] pb-3"
+                                                className="flex items-center justify-between border-b border-rule pb-3"
                                             >
                                                 <div>
-                                                    <div className="text-[13px] text-[var(--color-ink)]">
+                                                    <div className="text-[13px] text-ink">
                                                         {__(
                                                             transaction.type,
                                                         )}
                                                     </div>
 
-                                                    <div className="mt-1 text-[12px] text-[var(--color-ink-mid)]">
+                                                    <div className="mt-1 text-[12px] text-ink-mid">
                                                         {new Date(
                                                             transaction.created_at,
                                                         ).toLocaleDateString()}
                                                     </div>
                                                 </div>
 
-                                                <div className="text-[13px] font-medium text-[var(--color-ink)]">
+                                                <div className="text-[13px] font-medium text-ink">
                                                     {transaction.amount > 0
                                                         ? '+'
                                                         : ''}

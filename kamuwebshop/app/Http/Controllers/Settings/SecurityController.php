@@ -20,7 +20,7 @@ class SecurityController extends Controller
 
         Inertia::flash('toast', [
             'type' => 'success',
-            'message' => __('Jelszó frissítve'),
+            'message' => __('Password updated'),
         ]);
 
         return back();

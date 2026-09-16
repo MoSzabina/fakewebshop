@@ -1,6 +1,5 @@
-import AdminLayout from '@/layouts/admin-layout'
 import { BarChart3 } from 'lucide-react'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import {
     Area,
     AreaChart,
@@ -14,6 +13,7 @@ import {
     XAxis,
     YAxis,
 } from 'recharts'
+import AdminLayout from '@/layouts/admin-layout'
 
 const currDate = new Date().toLocaleDateString();
 
@@ -50,7 +50,7 @@ export default function Admin({
         <AdminLayout>
             <div className="space-y-8">
                 <div>
-                    <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-sage)]">
+                    <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.14em] text-sage">
                         <BarChart3 size={14} />
                         Admin
                     </div>
@@ -98,12 +98,12 @@ export default function Admin({
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-                    <div className="rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] p-5 lg:col-span-2">
+                    <div className="rounded border border-rule bg-white p-5 lg:col-span-2">
                         <div className="text-[15px] font-medium">
                             Revenue · 7 months
                         </div>
 
-                        <div className="mt-1 text-[12px] text-[var(--color-ink-mid)]">
+                        <div className="mt-1 text-[12px] text-ink-mid">
                             Monthly revenue
                         </div>
 
@@ -111,7 +111,7 @@ export default function Admin({
                             <ResponsiveContainer width="100%" height="100%">
                                 <AreaChart data={salesData}>
                                     <CartesianGrid
-                                        stroke="var(--color-ink)"
+                                        stroke="ink"
                                         vertical={false}
                                     />
 
@@ -119,7 +119,7 @@ export default function Admin({
                                         dataKey="month"
                                         tick={{
                                             fontSize: 11,
-                                            fill: 'var(--color-ink-mid)',
+                                            fill: 'ink-mid',
                                         }}
                                         axisLine={false}
                                         tickLine={false}
@@ -128,7 +128,7 @@ export default function Admin({
                                     <YAxis
                                         tick={{
                                             fontSize: 11,
-                                            fill: 'var(--color-ink-mid)',
+                                            fill: 'ink-mid',
                                         }}
                                         axisLine={false}
                                         tickLine={false}
@@ -140,7 +140,7 @@ export default function Admin({
                                         type="monotone"
                                         dataKey="revenue"
                                         stroke="var(--color-sage)"
-                                        fill="var(--color-white)"
+                                        fill="white"
                                         strokeWidth={2}
                                     />
                                 </AreaChart>
@@ -148,12 +148,12 @@ export default function Admin({
                         </div>
                     </div>
 
-                    <div className="rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] p-5">
+                    <div className="rounded border border-rule bg-white p-5">
                         <div className="text-[15px] font-medium">
                             Orders by Category
                         </div>
 
-                        <div className="mt-1 text-[12px] text-[var(--color-ink-mid)]">
+                        <div className="mt-1 text-[12px] text-ink-mid">
                             Share of orders
                         </div>
 
@@ -173,7 +173,7 @@ export default function Admin({
                                         tickFormatter={(value) => `${value}%`}
                                         tick={{
                                             fontSize: 10,
-                                            fill: 'var(--color-ink-mid)',
+                                            fill: 'ink-mid',
                                         }}
                                         axisLine={false}
                                         tickLine={false}
@@ -185,7 +185,7 @@ export default function Admin({
                                         width={75}
                                         tick={{
                                             fontSize: 10,
-                                            fill: 'var(--color-ink-mid)',
+                                            fill: 'ink-mid',
                                         }}
                                         axisLine={false}
                                         tickLine={false}
@@ -207,12 +207,12 @@ export default function Admin({
                     </div>
                 </div>
 
-                <div className="rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] p-5">
+                <div className="rounded border border-rule bg-white p-5">
                     <div className="text-[15px] font-medium">
                         Orders · 7 months
                     </div>
 
-                    <div className="mt-1 text-[12px] text-[var(--color-ink-mid)]">
+                    <div className="mt-1 text-[12px] text-ink-mid">
                         Monthly order volume
                     </div>
 
@@ -220,7 +220,7 @@ export default function Admin({
                         <ResponsiveContainer width="100%" height="100%">
                             <LineChart data={salesData}>
                                 <CartesianGrid
-                                    stroke="var(--color-ink)"
+                                    stroke="ink"
                                     vertical={false}
                                 />
 
@@ -228,7 +228,7 @@ export default function Admin({
                                     dataKey="month"
                                     tick={{
                                         fontSize: 11,
-                                        fill: 'var(--color-ink-mid)',
+                                        fill: 'ink-mid',
                                     }}
                                     axisLine={false}
                                     tickLine={false}
@@ -237,7 +237,7 @@ export default function Admin({
                                 <YAxis
                                     tick={{
                                         fontSize: 11,
-                                        fill: 'var(--color-ink-mid)',
+                                        fill: 'ink-mid',
                                     }}
                                     axisLine={false}
                                     tickLine={false}
@@ -273,21 +273,21 @@ function StatCard({
     highlight?: boolean
 }) {
     return (
-        <div className="flex flex-col gap-3 rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-parchment)] p-5">
-            <span className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-ink-mid)]">
+        <div className="flex flex-col gap-3 rounded border border-rule bg-parchment p-5">
+            <span className="text-[11px] font-medium uppercase tracking-[0.1em] text-ink-mid">
                 {label}
             </span>
 
             <span
                 className={`text-[25px] font-medium tracking-[-0.02em] ${highlight
-                        ? 'text-[var(--color-sage)]'
-                        : 'text-[var(--color-ink)]'
+                        ? 'text-sage'
+                        : 'text-ink'
                     }`}
             >
                 {value}
             </span>
 
-            <span className="text-[12px] text-[var(--color-ink-mid)]">
+            <span className="text-[12px] text-ink-mid">
                 {sub}
             </span>
         </div>

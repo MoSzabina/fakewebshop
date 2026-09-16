@@ -1,9 +1,9 @@
+import { useForm } from '@inertiajs/react';
+import PasswordInput from '@/components/password-input';
 import { SectionLabel } from '@/components/section-label';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import PasswordInput from '@/components/password-input';
-import { useForm } from '@inertiajs/react';
 import { useTranslations } from '@/hooks/useTranslation';
 
 export default function Auth() {
@@ -23,7 +23,7 @@ export default function Auth() {
 
     return (
         <section className="py-10">
-            <div className="mx-auto grid max-w-[1040px] grid-cols-1 overflow-hidden rounded-[4px] bg-[var(--color-sage)] md:grid-cols-2">
+            <div className="mx-auto grid max-w-[1040px] grid-cols-1 overflow-hidden rounded bg-sage md:grid-cols-2">
 
                 <div className="p-8 md:p-10">
                     <SectionLabel>{__('Log In')}</SectionLabel>
@@ -108,7 +108,7 @@ export default function Auth() {
                     </form>
                 </div>
 
-                <div className="border-t border-[var(--color-rule)] p-8 md:border-l md:border-t-0 md:p-10">
+                <div className="border-t border-rule p-8 md:border-l md:border-t-0 md:p-10">
                     <SectionLabel>{__('Register')}</SectionLabel>
 
                     <form

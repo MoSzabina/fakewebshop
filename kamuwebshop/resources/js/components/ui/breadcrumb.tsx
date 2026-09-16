@@ -3,6 +3,7 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { useTranslations } from "@/hooks/useTranslation"
 
 function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />
@@ -84,6 +85,9 @@ function BreadcrumbEllipsis({
   className,
   ...props
 }: React.ComponentProps<"span">) {
+
+  const { __ } = useTranslations();
+
   return (
     <span
       data-slot="breadcrumb-ellipsis"
@@ -93,7 +97,7 @@ function BreadcrumbEllipsis({
       {...props}
     >
       <MoreHorizontal className="size-4" />
-      <span className="sr-only">More</span>
+      <span className="sr-only">{__('More')}</span>
     </span>
   )
 }

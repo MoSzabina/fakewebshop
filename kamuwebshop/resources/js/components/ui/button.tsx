@@ -10,22 +10,22 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[var(--color-ink)] text-[var(--color-white)] border-0 hover:bg-[var(--color-ink-mid)]",
+          "bg-ink text-white border-0 hover:bg-ink-mid",
 
         secondary:
-          "bg-[var(--color-sage)] text-[var(--color-white)] border-0 hover:bg-[var(--color-sage)]",
+          "bg-sage text-white border-0 hover:bg-sage",
 
         outline:
-          "bg-transparent text-[var(--color-ink)] border-[1.5px] border-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-[var(--color-white)]",
+          "bg-transparent text-ink border-[1.5px] border-ink hover:bg-ink hover:text-white",
 
         muted:
-          "bg-transparent text-[var(--color-ink-mid)] border-[1.5px] border-[var(--color-rule)] hover:text-[var(--color-ink)] hover:border-[var(--color-ink-mid)]",
+          "bg-transparent text-ink-mid border-[1.5px] border-rule hover:text-ink hover:border-ink-mid",
 
         link:
-          "bg-transparent text-[var(--color-ink)] border-0 underline underline-offset-[3px] px-0 py-0 hover:no-underline",
+          "bg-transparent text-ink border-0 underline underline-offset-[3px] px-0 py-0 hover:no-underline",
 
         destructive:
-          "bg-[var(--color-ink)] text-[var(--color-white)] border-0 hover:bg-[var(--color-ink-mid)]",
+          "bg-ink text-white border-0 hover:bg-ink-mid",
       },
 
       size: {

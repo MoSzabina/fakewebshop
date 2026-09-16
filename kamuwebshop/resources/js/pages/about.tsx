@@ -4,6 +4,7 @@ import { useTranslations } from '@/hooks/useTranslation';
 
 export default function About() {
     const { __ } = useTranslations();
+
     return (
         <>
 
@@ -19,7 +20,7 @@ export default function About() {
                     {__('You can browse and add products to your cart without logging in. Only registered users can place an order!')}
                 </p>
 
-                <ol className="list-decimal list-inside py-8 text-[var(--color-ink-mid)]">
+                <ol className="list-decimal list-inside py-8 text-ink-mid">
                     <li>{__('You can add products to your cart.')}</li>
                     <li>{__('To place an order, you need to log in or create an account.')}</li>
                     <li>{__('You can register with any email address. We don’t send a confirmation link.')}</li>
@@ -41,7 +42,7 @@ export default function About() {
                     {__('I made this project as part of my portfolio to show how I use the following technologies in a webshop:')}
                 </p>
 
-                <ul className="mb-5 list-disc pl-5 text-[15px] leading-[1.72] text-[var(--color-ink)]">
+                <ul className="mb-5 list-disc pl-5 leading-[1.72]">
                     <li>Laravel</li>
                     <li>React</li>
                     <li>TypeScript</li>
@@ -54,7 +55,7 @@ export default function About() {
                     {__('I worked on the whole project from planning to the finished application:')}
                 </p>
 
-                <ul className="mb-5 list-disc pl-5 text-[15px] leading-[1.72] text-[var(--color-ink)]">
+                <ul className="mb-5 list-disc pl-5 leading-[1.72]">
                     <li>{__('Project planning and task management with a Kanban board')}</li>
                     <li>{__('UI/UX and visual design with Figma')}</li>
                     <li>{__('Version control with GitHub')}</li>

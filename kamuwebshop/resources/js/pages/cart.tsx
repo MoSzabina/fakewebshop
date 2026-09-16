@@ -58,6 +58,7 @@ export default function Cart({ cart }: CartProps) {
     const handleCheckout = () => {
         if (!auth.user) {
             setShowLoginPrompt(true);
+
             return;
         }
 
@@ -73,31 +74,31 @@ export default function Cart({ cart }: CartProps) {
     return (
         <section className="mx-auto w-full max-w-[1040px] px-8 py-12">
             <div className="mb-10">
-                <h1 className="text-[36px] font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
+                <h1 className="text-[36px] font-semibold tracking-[-0.03em] text-ink">
                     {__('Your cart')}
                 </h1>
 
-                <p className="mt-2 text-[15px] text-[var(--color-ink-mid)]">
+                <p className="mt-2 text-ink-mid">
                     {__('Your selected products')}
                 </p>
             </div>
 
             {cart.items.length === 0 ? (
-                <div className="border-t border-[var(--color-rule)] pt-8">
-                    <p className="text-[14px] text-[var(--color-ink-mid)]">
+                <div className="border-t border-rule pt-8">
+                    <p className="text-[14px] text-ink-mid">
                         {__('Your cart is empty.')}
                     </p>
                 </div>
             ) : (
                 <div className="grid gap-10 md:grid-cols-[1fr_300px]">
                     <div>
-                        <div className="divide-y divide-[var(--color-rule)] border-y border-[var(--color-rule)]">
+                        <div className="divide-y divide-rule border-y border-rule">
                             {cart.items.map((item) => (
                                 <div
                                     key={item.id}
                                     className="flex gap-5 py-6"
                                 >
-                                    <div className="flex size-24 shrink-0 items-center justify-center overflow-hidden rounded-[4px] bg-[var(--color-sage-light)]">
+                                    <div className="flex size-24 shrink-0 items-center justify-center overflow-hidden rounded bg-sage-light">
                                         {item.product.image ? (
                                             <img
                                                 src={item.product.image}
@@ -105,25 +106,25 @@ export default function Cart({ cart }: CartProps) {
                                                 className="h-full w-full object-cover"
                                             />
                                         ) : (
-                                            <span className="text-[9px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
+                                            <span className="text-[9px] font-medium tracking-[0.08em] text-sage">
                                                 {__('PRODUCT IMAGE')}
                                             </span>
                                         )}
                                     </div>
 
                                     <div className="min-w-0 flex-1">
-                                        <div className="mb-1 text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
+                                        <div className="mb-1 text-[11px] font-medium tracking-[0.08em] text-sage">
                                             {__(item.product.category.name)}
                                         </div>
 
                                         <Link
                                             href={`/products/${item.product.slug}`}
-                                            className="text-[15px] font-medium text-[var(--color-ink)] hover:underline"
+                                            className="text-[15px] font-medium text-ink hover:underline"
                                         >
                                             {__(item.product.name)}
                                         </Link>
 
-                                        <div className="mt-2 text-[14px] text-[var(--color-ink-mid)]">
+                                        <div className="mt-2 text-[14px] text-ink-mid">
                                             {item.product.price}
                                         </div>
 
@@ -140,12 +141,12 @@ export default function Cart({ cart }: CartProps) {
                                                 aria-label={__(
                                                     'Decrease quantity',
                                                 )}
-                                                className="flex size-7 items-center justify-center rounded-[3px] border border-[var(--color-rule)] text-[var(--color-ink)] disabled:opacity-40"
+                                                className="flex size-7 items-center justify-center rounded-[3px] border border-rule text-ink disabled:opacity-40"
                                             >
                                                 <Minus size={13} />
                                             </button>
 
-                                            <span className="w-6 text-center text-[13px] text-[var(--color-ink)]">
+                                            <span className="w-6 text-center text-[13px] text-ink">
                                                 {item.quantity}
                                             </span>
 
@@ -160,7 +161,7 @@ export default function Cart({ cart }: CartProps) {
                                                 aria-label={__(
                                                     'Increase quantity',
                                                 )}
-                                                className="flex size-7 items-center justify-center rounded-[3px] border border-[var(--color-rule)] text-[var(--color-ink)]"
+                                                className="flex size-7 items-center justify-center rounded-[3px] border border-rule text-ink"
                                             >
                                                 <Plus size={13} />
                                             </button>
@@ -173,14 +174,14 @@ export default function Cart({ cart }: CartProps) {
                                                     )
                                                 }
                                                 aria-label={__('Remove')}
-                                                className="ml-2 flex size-7 items-center justify-center rounded-[3px] text-[var(--color-ink-mid)] hover:text-[var(--color-ink)]"
+                                                className="ml-2 flex size-7 items-center justify-center rounded-[3px] text-ink-mid hover:text-ink"
                                             >
                                                 <Trash2 size={14} />
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div className="shrink-0 text-right text-[14px] text-[var(--color-ink)]">
+                                    <div className="shrink-0 text-right text-[14px] text-ink">
                                         {(
                                             Number(item.product.price) *
                                             item.quantity
@@ -201,12 +202,12 @@ export default function Cart({ cart }: CartProps) {
                         </div>
                     </div>
 
-                    <aside className="h-fit rounded-[4px] bg-[var(--color-sage-light)] p-6">
-                        <h2 className="mb-6 text-[18px] font-medium text-[var(--color-ink)]">
+                    <aside className="h-fit rounded bg-sage-light p-6">
+                        <h2 className="mb-6 text-[18px] font-medium text-ink">
                             {__('Order summary')}
                         </h2>
 
-                        <div className="mb-6 flex justify-between border-b border-[var(--color-rule)] pb-4 text-[16px] font-medium text-[var(--color-ink)]">
+                        <div className="mb-6 flex justify-between border-b border-rule pb-4 text-[16px] font-medium text-ink">
                             <span>{__('Total')}</span>
                             <span>{total.toFixed(2)}</span>
                         </div>
@@ -224,12 +225,12 @@ export default function Cart({ cart }: CartProps) {
 
             {showLoginPrompt && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 px-6">
-                    <div className="w-full max-w-[420px] rounded-[4px] bg-[var(--color-white)] p-7 shadow-[0_8px_30px_rgba(28,25,23,0.15)]">
-                        <h2 className="mb-3 text-[18px] font-medium text-[var(--color-ink)]">
+                    <div className="w-full max-w-[420px] rounded bg-white p-7 shadow-[0_8px_30px_rgba(28,25,23,0.15)]">
+                        <h2 className="mb-3 text-[18px] font-medium text-ink">
                             {__('Login required')}
                         </h2>
 
-                        <p className="mb-7 text-[14px] leading-6 text-[var(--color-ink-mid)]">
+                        <p className="mb-7 text-[14px] leading-6 text-ink-mid">
                             {__(
                                 'You need to log in to place an order.',
                             )}
