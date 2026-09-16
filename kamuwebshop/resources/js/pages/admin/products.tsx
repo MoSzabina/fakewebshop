@@ -55,7 +55,7 @@ export default function Products({ products }: ProductsProps) {
                 <div className="relative w-full max-w-sm">
                     <Search
                         size={16}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-ink-mid)]"
+                        className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-mid"
                     />
 
                     <input
@@ -63,7 +63,7 @@ export default function Products({ products }: ProductsProps) {
                         value={search}
                         onChange={(event) => setSearch(event.target.value)}
                         placeholder="Search products..."
-                        className="h-10 w-full rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] pl-9 pr-3 text-[13px] text-[var(--color-ink)] outline-none placeholder:text-[var(--color-ink-mid)] focus:border-[var(--color-sage)]"
+                        className="h-10 w-full rounded border border-rule bg-white pl-9 pr-3 text-[13px] text-ink outline-none placeholder:text-ink-mid focus:border-sage"
                     />
                 </div>
 

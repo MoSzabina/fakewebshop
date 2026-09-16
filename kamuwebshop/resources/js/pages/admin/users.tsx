@@ -50,7 +50,7 @@ export default function Users({ users }: Props) {
             <div className="relative mb-5 w-full max-w-sm">
                 <Search
                     size={16}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-ink-mid)]"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-mid"
                 />
                 <Input
                     value={search}

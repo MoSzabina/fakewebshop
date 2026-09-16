@@ -17,13 +17,13 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
     return (
         <div className="grid min-h-screen grid-cols-[224px_1fr]">
-            <aside className="flex flex-col border-r border-[var(--color-rule)] bg-[var(--color-parchment)]">
+            <aside className="flex flex-col border-r border-rule bg-parchment">
                 <div className="p-6">
                     <div className="text-lg font-semibold">
                         fakewebshop
                     </div>
 
-                    <div className="text-[10px] uppercase tracking-widest text-[var(--color-ink-mid)]">
+                    <div className="text-[10px] uppercase tracking-widest text-ink-mid">
                         Admin
                     </div>
                 </div>
@@ -32,8 +32,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     <Link
                         href="/admin"
                         className={currentPath === '/admin'
-                            ? 'flex items-center gap-3 rounded bg-[var(--color-sage-light)] px-3 py-2 text-sm'
-                            : 'flex items-center gap-3 rounded px-3 py-2 text-sm text-[var(--color-ink-mid)]'}
+                            ? 'flex items-center gap-3 rounded bg-sage-light px-3 py-2 text-sm'
+                            : 'flex items-center gap-3 rounded px-3 py-2 text-sm text-ink-mid'}
                     >
                         <LayoutDashboard size={16} />
                         Overview
@@ -42,8 +42,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     <Link
                         href="/admin/products"
                         className={currentPath === '/admin/products'
-                            ? 'flex items-center gap-3 rounded bg-[var(--color-sage-light)] px-3 py-2 text-sm'
-                            : 'flex items-center gap-3 rounded px-3 py-2 text-sm text-[var(--color-ink-mid)]'}
+                            ? 'flex items-center gap-3 rounded bg-sage-light px-3 py-2 text-sm'
+                            : 'flex items-center gap-3 rounded px-3 py-2 text-sm text-ink-mid'}
                     >
                         <Package size={16} />
                         Products
@@ -52,8 +52,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     <Link
                         href="/admin/users"
                         className={currentPath === '/admin/users'
-                            ? 'flex items-center gap-3 rounded bg-[var(--color-sage-light)] px-3 py-2 text-sm'
-                            : 'flex items-center gap-3 rounded px-3 py-2 text-sm text-[var(--color-ink-mid)]'}
+                            ? 'flex items-center gap-3 rounded bg-sage-light px-3 py-2 text-sm'
+                            : 'flex items-center gap-3 rounded px-3 py-2 text-sm text-ink-mid'}
                     >
                         <Users size={16} />
                         Users
@@ -62,8 +62,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     <Link
                         href="/admin/orders"
                         className={currentPath === '/admin/orders'
-                            ? 'flex items-center gap-3 rounded bg-[var(--color-sage-light)] px-3 py-2 text-sm'
-                            : 'flex items-center gap-3 rounded px-3 py-2 text-sm text-[var(--color-ink-mid)]'}
+                            ? 'flex items-center gap-3 rounded bg-sage-light px-3 py-2 text-sm'
+                            : 'flex items-center gap-3 rounded px-3 py-2 text-sm text-ink-mid'}
                     >
                         <ClipboardList size={16} />
                         Orders
@@ -74,7 +74,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                         method="post"
                         as="button"
                         aria-label="Logout"
-                        className="flex cursor-pointer items-center gap-3 rounded px-3 py-2 text-sm text-[var(--color-ink-mid)]"
+                        className="flex cursor-pointer items-center gap-3 rounded px-3 py-2 text-sm text-ink-mid"
                     >
                         <LogOut size={16} />
                         Logout

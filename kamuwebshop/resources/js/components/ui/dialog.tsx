@@ -5,8 +5,6 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { useTranslations } from "@/hooks/useTranslation";
 
-const { __ } = useTranslations();
-
 function Dialog({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root>) {
@@ -52,6 +50,9 @@ function DialogContent({
   children,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content>) {
+  
+const { __ } = useTranslations();
+
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />

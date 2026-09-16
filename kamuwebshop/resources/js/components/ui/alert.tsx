@@ -17,14 +17,14 @@ function Alert({
       className={cn(
         "w-full border px-4 py-3 text-sm",
         variant === "default" && [
-          "border-[var(--color-rule)]",
-          "bg-[var(--color-parchment)]",
-          "text-[var(--color-ink)]",
+          "border-rule",
+          "bg-parchment",
+          "text-ink",
         ],
         variant === "success" && [
-          "border-[var(--color-sage)]",
-          "bg-[var(--color-sage-light)]",
-          "text-[var(--color-ink)]",
+          "border-sage",
+          "bg-sage-light",
+          "text-ink",
         ],
         variant === "error" && [
           "border-[#FCA5A5]",

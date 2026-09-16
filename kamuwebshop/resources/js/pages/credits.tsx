@@ -24,18 +24,18 @@ export default function Credits({ creditBalance, claimedToday }: CreditsProps) {
                     <SectionLabel>{__('Balance')}</SectionLabel>
                 </div>
 
-                <div className="mb-12 rounded-[4px] bg-[var(--color-sage-light)] px-6 py-8">
+                <div className="mb-12 rounded bg-sage-light px-6 py-8">
                     <div className="flex items-center gap-4">
-                        <div className="flex size-12 items-center justify-center rounded-full bg-[var(--color-white)] text-[var(--color-sage)]">
+                        <div className="flex size-12 items-center justify-center rounded-full bg-white text-sage">
                             <Sparkles size={24} strokeWidth={1.5} />
                         </div>
 
                         <div>
-                            <div className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-ink-mid)]">
+                            <div className="text-[12px] font-medium uppercase tracking-[0.08em] text-ink-mid">
                                 {__('Available credits')}
                             </div>
 
-                            <div className="mt-1 text-[30px] font-semibold text-[var(--color-ink)]">
+                            <div className="mt-1 text-[30px] font-semibold text-ink">
                                 {creditBalance}
                             </div>
                         </div>
@@ -47,34 +47,34 @@ export default function Credits({ creditBalance, claimedToday }: CreditsProps) {
 
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
 
-                        <div className="rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] p-6">
-                            <div className="mb-5 flex size-11 items-center justify-center rounded-full bg-[var(--color-sage-light)] text-[var(--color-sage)]">
+                        <div className="rounded border border-rule bg-white p-6">
+                            <div className="mb-5 flex size-11 items-center justify-center rounded-full bg-sage-light text-sage">
                                 <Gift size={22} strokeWidth={1.5} />
                             </div>
 
-                            <h3 className="text-[16px] font-medium text-[var(--color-ink)]">
+                            <h3 className="text-[16px] font-medium text-ink">
                                 {__('Welcome bonus')}
                             </h3>
 
-                            <p className="mt-2 text-[14px] leading-6 text-[var(--color-ink-mid)]">
+                            <p className="mt-2 text-[14px] leading-6 text-ink-mid">
                                 {__('Get bonus credits when you create an account.')}
                             </p>
 
-                            <div className="mt-5 text-[14px] font-medium text-[var(--color-sage)]">
+                            <div className="mt-5 text-[14px] font-medium text-sage">
                                 +1000 credits
                             </div>
                         </div>
 
-                        <div className="rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] p-6">
-                            <div className="mb-5 flex size-11 items-center justify-center rounded-full bg-[var(--color-sage-light)] text-[var(--color-sage)]">
+                        <div className="rounded border border-rule bg-white p-6">
+                            <div className="mb-5 flex size-11 items-center justify-center rounded-full bg-sage-light text-sage">
                                 <CalendarDays size={22} strokeWidth={1.5} />
                             </div>
 
-                            <h3 className="text-[16px] font-medium text-[var(--color-ink)]">
+                            <h3 className="text-[16px] font-medium text-ink">
                                 {__('Daily reward')}
                             </h3>
 
-                            <p className="mt-2 text-[14px] leading-6 text-[var(--color-ink-mid)]">
+                            <p className="mt-2 text-[14px] leading-6 text-ink-mid">
                                 {__('Come back every day and claim your reward.')}
                             </p>
 
@@ -87,50 +87,50 @@ export default function Credits({ creditBalance, claimedToday }: CreditsProps) {
                                     })
                                 }
                                 className={`mt-5 rounded-[3px] px-4 py-2 text-[13px] font-medium text-white transition-opacity ${claimedToday
-                                    ? 'cursor-not-allowed bg-[var(--color-ink-mid)] opacity-50'
-                                    : 'bg-[var(--color-sage)] hover:opacity-90'
+                                    ? 'cursor-not-allowed bg-ink-mid opacity-50'
+                                    : 'bg-sage hover:opacity-90'
                                     }`}
                             >
                                 {claimedToday ? __('+ 100') : __('Claim daily reward')}
                             </button>
                         </div>
 
-                        <div className="rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] p-6">
-                            <div className="mb-5 flex size-11 items-center justify-center rounded-full bg-[var(--color-sage-light)] text-[var(--color-sage)]">
+                        <div className="rounded border border-rule bg-white p-6">
+                            <div className="mb-5 flex size-11 items-center justify-center rounded-full bg-sage-light text-sage">
                                 <Gamepad2 size={22} strokeWidth={1.5} />
                             </div>
 
-                            <h3 className="text-[16px] font-medium text-[var(--color-ink)]">
+                            <h3 className="text-[16px] font-medium text-ink">
                                 {__('Mini games')}
                             </h3>
 
-                            <p className="mt-2 text-[14px] leading-6 text-[var(--color-ink-mid)]">
+                            <p className="mt-2 text-[14px] leading-6 text-ink-mid">
                                 {__('Play simple games and earn extra credits.')}
                             </p>
 
                             <button
                                 type="button"
                                 disabled
-                                className="mt-5 rounded-[3px] bg-[var(--color-sage)] px-4 py-2 text-[13px] font-medium text-white opacity-50"
+                                className="mt-5 rounded-[3px] bg-sage px-4 py-2 text-[13px] font-medium text-white opacity-50"
                             >
                                 {__('Coming soon')}
                             </button>
                         </div>
 
-                        <div className="rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] p-6">
-                            <div className="mb-5 flex size-11 items-center justify-center rounded-full bg-[var(--color-sage-light)] text-[var(--color-sage)]">
+                        <div className="rounded border border-rule bg-white p-6">
+                            <div className="mb-5 flex size-11 items-center justify-center rounded-full bg-sage-light text-sage">
                                 <Sparkles size={22} strokeWidth={1.5} />
                             </div>
 
-                            <h3 className="text-[16px] font-medium text-[var(--color-ink)]">
+                            <h3 className="text-[16px] font-medium text-ink">
                                 {__('More ways to earn')}
                             </h3>
 
-                            <p className="mt-2 text-[14px] leading-6 text-[var(--color-ink-mid)]">
+                            <p className="mt-2 text-[14px] leading-6 text-ink-mid">
                                 {__('More fun ways to earn credits will be added later.')}
                             </p>
 
-                            <div className="mt-5 text-[13px] text-[var(--color-ink-mid)]">
+                            <div className="mt-5 text-[13px] text-ink-mid">
                                 {__('Coming soon')}
                             </div>
                         </div>

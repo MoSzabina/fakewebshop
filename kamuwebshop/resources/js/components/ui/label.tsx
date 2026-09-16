@@ -14,7 +14,7 @@ function Label({
         "block",
         "text-[12px]",
         "font-medium",
-        "text-[var(--color-ink)]",
+        "text-ink",
         "tracking-[0.02em]",
         "mb-[6px]",
         "select-none",

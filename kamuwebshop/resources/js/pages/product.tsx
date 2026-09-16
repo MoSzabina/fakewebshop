@@ -36,25 +36,25 @@ export default function ProductPage({
 
     return (
         <section className="mx-auto w-full max-w-[1040px] px-8 py-10">
-            <div className="mb-8 text-[13px] text-[var(--color-ink-mid)]">
+            <div className="mb-8 text-[13px] text-ink-mid">
                 <Link
                     href="/products"
-                    className="hover:text-[var(--color-ink)]"
+                    className="hover:text-ink"
                 >
                     {__('Products')}
                 </Link>
 
                 <span className="mx-2">/</span>
 
-                <span className="text-[var(--color-ink)]">
+                <span className="text-ink">
                     {__(product.category.name)}
                 </span>
             </div>
 
-            <div className="mb-10 border-t border-[var(--color-rule)]" />
+            <div className="mb-10 border-t border-rule" />
 
             <div className="grid gap-10 md:grid-cols-2 md:items-start">
-                <div className="overflow-hidden rounded-[4px] bg-[var(--color-sage-light)]">
+                <div className="overflow-hidden rounded bg-sage-light">
                     {product.image ? (
                         <img
                             src={product.image?.startsWith('/') ? product.image : `/${product.image}`}
@@ -62,26 +62,26 @@ export default function ProductPage({
                             className="aspect-square h-full w-full object-cover"
                         />
                     ) : (
-                        <div className="flex aspect-square items-center justify-center text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
+                        <div className="flex aspect-square items-center justify-center text-[11px] font-medium tracking-[0.08em] text-sage">
                             PRODUCT IMAGE
                         </div>
                     )}
                 </div>
 
                 <div className="flex flex-col">
-                    <div className="text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
+                    <div className="text-[11px] font-medium tracking-[0.08em] text-sage">
                         {__(product.category.name)}
                     </div>
 
-                    <h1 className="mt-2 text-[36px] font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
+                    <h1 className="mt-2 text-[36px] font-semibold tracking-[-0.03em] text-ink">
                         {__(product.name)}
                     </h1>
 
-                    <div className="mt-4 text-[16px] text-[var(--color-ink-mid)]">
+                    <div className="mt-4 text-[16px] text-ink-mid">
                         {product.price}
                     </div>
 
-                    <p className="mt-7 text-[15px] leading-7 text-[var(--color-ink-mid)]">
+                    <p className="mt-7 leading-7 text-ink-mid">
                         {product.description}
                     </p>
 
@@ -100,7 +100,7 @@ export default function ProductPage({
             </div>
 
             {relatedProducts.length > 0 && (
-                <section className="mt-20 border-t border-[var(--color-rule)] pt-10">
+                <section className="mt-20 border-t border-rule pt-10">
                     <SectionLabel>
                         {__('This might be interesting for you')}
                     </SectionLabel>

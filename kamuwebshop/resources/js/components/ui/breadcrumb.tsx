@@ -5,8 +5,6 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { useTranslations } from "@/hooks/useTranslation"
 
-const { __ } = useTranslations();
-
 function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />
 }
@@ -87,6 +85,9 @@ function BreadcrumbEllipsis({
   className,
   ...props
 }: React.ComponentProps<"span">) {
+
+  const { __ } = useTranslations();
+
   return (
     <span
       data-slot="breadcrumb-ellipsis"

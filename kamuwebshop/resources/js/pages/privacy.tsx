@@ -22,7 +22,7 @@ export default function Privacy() {
 
     <p>{__('If you create an account, the website may store information such as:')}</p>
 
-    <ul className="list-disc list-inside text-[var(--color-ink-mid)]">
+    <ul className="list-disc list-inside text-ink-mid">
         <li>{__('username')}</li>
         <li>{__('email address')}</li>
         <li>{__('password')}</li>
@@ -53,7 +53,7 @@ export default function Privacy() {
         {__('Information stored by the application is used only for the functionality of this portfolio project, including:')}
     </p>
 
-    <ul className="list-disc list-inside text-[var(--color-ink-mid)]">
+    <ul className="list-disc list-inside text-ink-mid">
         <li>{__('creating and managing user accounts')}</li>
         <li>{__('maintaining shopping carts')}</li>
         <li>{__('displaying orders')}</li>
@@ -83,7 +83,7 @@ export default function Privacy() {
         {__('The website may use technically necessary cookies or browser storage required for the application to function. These may be used for purposes such as:')}
     </p>
 
-    <ul className="list-disc list-inside text-[var(--color-ink-mid)]">
+    <ul className="list-disc list-inside text-ink-mid">
         <li>{__('maintaining your login session')}</li>
         <li>{__('protecting forms and requests')}</li>
         <li>{__('remembering selected preferences such as language')}</li>

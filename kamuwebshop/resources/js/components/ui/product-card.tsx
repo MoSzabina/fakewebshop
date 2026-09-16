@@ -22,9 +22,9 @@ function ProductCard({
   const { __ } = useTranslations();
 
   return (
-    <div className="overflow-hidden rounded-[4px] border border-[var(--color-rule)] bg-[var(--color-white)] transition-[box-shadow] duration-150 hover:shadow-[0_4px_20px_rgba(28,25,23,0.09)]">
+    <div className="overflow-hidden rounded border border-rule bg-white transition-[box-shadow] duration-150 hover:shadow-[0_4px_20px_rgba(28,25,23,0.09)]">
       <Link href={`/products/${slug}`} className="block">
-        <div className="flex items-center justify-center bg-[var(--color-sage-light)]">
+        <div className="flex items-center justify-center bg-sage-light">
           {image ? (
             <img
               src={image?.startsWith('/') ? image : `/${image}`}
@@ -32,7 +32,7 @@ function ProductCard({
               className="h-full w-full object-cover"
             />
           ) : (
-            <span className="text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
+            <span className="text-[11px] font-medium tracking-[0.08em] text-sage">
               PRODUCT IMAGE
             </span>
           )}
@@ -40,16 +40,16 @@ function ProductCard({
       </Link>
 
       <div className="px-[20px] py-[18px]">
-        <div className="mb-[6px] text-[11px] font-medium tracking-[0.08em] text-[var(--color-sage)]">
+        <div className="mb-[6px] text-[11px] font-medium tracking-[0.08em] text-sage">
           {__(category)}
         </div>
 
-        <div className="mb-[4px] text-[15px] font-medium text-[var(--color-ink)]">
+        <div className="mb-[4px] text-[15px] font-medium text-ink">
           {__(name)}
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="text-[14px] text-[var(--color-ink-mid)]">
+          <div className="text-[14px] text-ink-mid">
             {price}
           </div>
 
@@ -61,7 +61,7 @@ function ProductCard({
                   preserveScroll: true,
                 })
               }
-              className="flex size-8 items-center justify-center rounded-[3px] border border-[var(--color-rule)] text-[18px] font-light text-[var(--color-ink)] transition-colors hover:bg-[var(--color-sage-light)]"
+              className="flex size-8 items-center justify-center rounded-[3px] border border-rule text-[18px] font-light text-ink transition-colors hover:bg-sage-light"
               aria-label={__("Add to cart")}
             >
               <ShoppingCart size={16} />
