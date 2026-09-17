@@ -24,6 +24,7 @@ export default function About() {
                     <li>{__('You can add products to your cart.')}</li>
                     <li>{__('To place an order, you need to log in or create an account.')}</li>
                     <li>{__('You can register with any email address. We don’t send a confirmation link.')}</li>
+                    <li>{__('You recieve 1000 credits when you register.')}</li>
                     <li>{__('After logging in, you get credits that you can use for "buying".')}</li>
                     <li>
                         {__('If you don’t have enough, get more on the')}{' '}
