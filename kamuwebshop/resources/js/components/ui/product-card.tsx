@@ -27,7 +27,7 @@ function ProductCard({
         <div className="flex items-center justify-center bg-sage-light">
           {image ? (
             <img
-              src={image?.startsWith('/') ? image : `/${image}`}
+              src={image?.startsWith('/') ? image : `/storage/images/${image}`}
               alt={name}
               className="h-full w-full object-cover"
             />

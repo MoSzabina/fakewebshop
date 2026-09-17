@@ -58,7 +58,7 @@ class ProductController extends Controller
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')
-                ->store('products', 'public');
+                ->store('images', 'public');
         } else {
             $validated['image'] = 'placeholder.jpg';
         }
@@ -90,7 +90,7 @@ class ProductController extends Controller
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')
-                ->store('products', 'public');
+                ->store('images', 'public');
         }
 
         $product->update($validated);

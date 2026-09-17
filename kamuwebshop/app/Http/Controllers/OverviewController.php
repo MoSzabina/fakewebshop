@@ -13,7 +13,7 @@ class OverviewController extends Controller
     {
         $orders = Order::query();
 
-        $revenue = $orders->sum('total_price');
+        $revenue = $orders->sum('totalprice');
         $orderCount = $orders->count();
         $customerCount = User::where('is_admin', false)->count();
 
@@ -24,7 +24,7 @@ class OverviewController extends Controller
         $startMonth = now()->startOfMonth()->subMonths(6);
 
         $recentOrders = Order::where('created_at', '>=', $startMonth)
-            ->get(['total_price', 'created_at']);
+            ->get(['totalprice', 'created_at']);
 
         $salesData = collect(range(6, 0))->map(function ($monthsAgo) use ($recentOrders) {
             $month = now()->startOfMonth()->subMonths($monthsAgo);
@@ -36,7 +36,7 @@ class OverviewController extends Controller
 
             return [
                 'month' => $month->format('M'),
-                'revenue' => round($monthOrders->sum('total_price'), 2),
+                'revenue' => round($monthOrders->sum('totalprice'), 2),
                 'orders' => $monthOrders->count(),
             ];
         })->values();

@@ -77,7 +77,7 @@ class CheckoutController extends Controller
             $order = Order::create([
                 'user_id' => $cart->user_id,
                 'status' => OrderStatus::Pending,
-                'total_price' => $total,
+                'totalprice' => $total,
                 'shipping' => $validated['shipping'],
             ]);
 
