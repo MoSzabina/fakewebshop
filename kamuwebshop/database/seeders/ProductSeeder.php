@@ -27,7 +27,7 @@ class ProductSeeder extends Seeder
         'price' => 34.99,
         'stock' => 25,
         'description' => 'All knows the Eye of Sauron, but what about his nose?',
-        'image' => 'placeholder.jpg',
+        'image' => 'nose-of-sauron.jpg',
     ]);
 
     Product::create([
@@ -36,7 +36,7 @@ class ProductSeeder extends Seeder
     'price' => 20,
     'stock' => 150,
     'description' => 'Perfect gift for your loved ones',
-    'image' => 'placeholder.jpg',
+    'image' => 'emotional-damage.jpg',
     ]);
 
     Product::create([
@@ -45,7 +45,7 @@ class ProductSeeder extends Seeder
         'price' => 30,
         'stock' => 45,
         'description' => 'A rare occasion',
-        'image' => 'placeholder.jpg',
+        'image' => 'wake-up-refreshed-in-the-morning.jpg',
     ]);
 
     Product::create([
@@ -54,7 +54,7 @@ class ProductSeeder extends Seeder
         'price' => 999,
         'stock' => 5,
         'description' => 'You will be the coolest gamer',
-        'image' => 'placeholder.jpg',
+        'image' => 'gta-vii.jpg',
     ]);
 
     Product::create([
@@ -63,7 +63,7 @@ class ProductSeeder extends Seeder
         'price' => 89,
         'stock' => 20,
         'description' => 'Fuelled by regret',
-        'image' => 'placeholder.jpg',
+        'image' => 'flying-shoes.jpg',
     ]);
 
     Product::create([
@@ -72,7 +72,7 @@ class ProductSeeder extends Seeder
         'price' => 5,
         'stock' => 1000,
         'description' => 'Your closest companion for eternity',
-        'image' => 'placeholder.jpg',
+        'image' => 'harold.jpg',
     ]);
 
     Product::create([
@@ -81,7 +81,7 @@ class ProductSeeder extends Seeder
         'price' => 800,
         'stock' => 10,
         'description' => 'Have the latest phone 2 years before everyone',
-        'image' => 'placeholder.jpg',
+        'image' => 'iphone-78.jpg',
     ]);
 
     Product::create([
@@ -90,7 +90,7 @@ class ProductSeeder extends Seeder
         'price' => 25,
         'stock' => 40,
         'description' => 'Unshave yourself, everybody knows nobody smooth',
-        'image' => 'placeholder.jpg',
+        'image' => 'hair-reapplier.jpg',
     ]);
 
     Product::create([
@@ -99,7 +99,7 @@ class ProductSeeder extends Seeder
         'price' => 1900,
         'stock' => 9,
         'description' => 'Average pepole aint got time for that. But you are above.',
-        'image' => 'placeholder.jpg',
+        'image' => 'time-for-that.jpg',
     ]);
 
     Product::create([
@@ -108,7 +108,7 @@ class ProductSeeder extends Seeder
         'price' => 600,
         'stock' => 17,
         'description' => '1000 midi-chlorians per bottle',
-        'image' => 'placeholder.jpg',
+        'image' => 'force.jpg',
     ]);
 
     Product::create([
@@ -117,7 +117,7 @@ class ProductSeeder extends Seeder
         'price' => 120,
         'stock' => 0,
         'description' => 'Out of stock since Monday',
-        'image' => 'placeholder.jpg',
+        'image' => 'motivation.jpg',
     ]);
 
     Product::create([
@@ -126,7 +126,7 @@ class ProductSeeder extends Seeder
         'price' => 230,
         'stock' => 22,
         'description' => 'Delivery may take several years',
-        'image' => 'placeholder.jpg',
+        'image' => 'patience.jpg',
     ]);
 
     Product::create([
@@ -135,7 +135,7 @@ class ProductSeeder extends Seeder
         'price' => 999,
         'stock' => 10,
         'description' => 'Pre-order now, receive eventually',
-        'image' => 'placeholder.jpg',
+        'image' => 'half-life-3.jpg',
     ]);
 
     Product::create([
@@ -144,7 +144,7 @@ class ProductSeeder extends Seeder
         'price' => 59,
         'stock' => 30,
         'description' => 'When you respect neither fashion nor yourself',
-        'image' => 'placeholder.jpg',
+        'image' => 'formal-crocs.jpg',
     ]);
 
     Product::create([
@@ -153,7 +153,7 @@ class ProductSeeder extends Seeder
         'price' => 19,
         'stock' => 200,
         'description' => 'Does not judge, bark or require feeding',
-        'image' => 'placeholder.jpg',
+        'image' => 'emotional-support-rock.jpg',
     ]);
 
     Product::create([
@@ -162,7 +162,7 @@ class ProductSeeder extends Seeder
         'price' => 349,
         'stock' => 300,
         'description' => 'Basically a normal printer',
-        'image' => 'placeholder.jpg',
+        'image' => 'self-destructing-printer.jpg',
     ]);
 
     Product::create([
@@ -171,7 +171,7 @@ class ProductSeeder extends Seeder
         'price' => 20000,
         'stock' => 2,
         'description' => 'Taxes not included',
-        'image' => 'placeholder.jpg',
+        'image' => 'private-island.jpg',
     ]);
 
     Product::create([
@@ -180,7 +180,7 @@ class ProductSeeder extends Seeder
         'price' => 2800,
         'stock' => 3,
         'description' => 'Flush away your money in style',
-        'image' => 'placeholder.jpg',
+        'image' => 'solid-gold-toilet.jpg',
     ]);
 
     Product::create([
@@ -189,7 +189,7 @@ class ProductSeeder extends Seeder
         'price' => 35,
         'stock' => 1001,
         'description' => 'Never sheds hair',
-        'image' => 'placeholder.jpg',
+        'image' => 'invisible-dog.jpg',
     ]);
 
     Product::create([
@@ -198,7 +198,7 @@ class ProductSeeder extends Seeder
         'price' => 70,
         'stock' => 80,
         'description' => 'You know, just alcohol to make you confident',
-        'image' => 'placeholder.jpg',
+        'image' => 'felix-felicis.jpg',
     ]);
 
     Product::create([
@@ -207,7 +207,7 @@ class ProductSeeder extends Seeder
         'price' => 210,
         'stock' => 40,
         'description' => 'One less thing to worry about',
-        'image' => 'placeholder.jpg',
+        'image' => 'self-lacing-shoes.jpg',
     ]);
 
     Product::create([
@@ -216,7 +216,7 @@ class ProductSeeder extends Seeder
         'price' => 89,
         'stock' => 90,
         'description' => 'Never make eye contact again',
-        'image' => 'placeholder.jpg',
+        'image' => 'introvert-sunglasses.jpg',
     ]);
 
     Product::create([
@@ -225,7 +225,7 @@ class ProductSeeder extends Seeder
         'price' => 65,
         'stock' => 260,
         'description' => 'You know, just leave you shoes at home',
-        'image' => 'placeholder.jpg',
+        'image' => 'barefoot-shoes.jpg',
     ]);
 
     Product::create([
@@ -234,7 +234,7 @@ class ProductSeeder extends Seeder
         'price' => 500,
         'stock' => 400,
         'description' => 'No refunds!',
-        'image' => 'placeholder.jpg',
+        'image' => 'respawn-token.jpg',
     ]);
 
     Product::create([
@@ -243,7 +243,7 @@ class ProductSeeder extends Seeder
         'price' => 35,
         'stock' => 55,
         'description' => 'Helps you stay asleep',
-        'image' => 'placeholder.jpg',
+        'image' => 'anti-alarm-clock.jpg',
     ]);
 
     Product::create([
@@ -252,7 +252,7 @@ class ProductSeeder extends Seeder
         'price' => 420,
         'stock' => 15,
         'description' => 'Experience the outside world without going outside',
-        'image' => 'placeholder.jpg',
+        'image' => 'vr-window.jpg',
     ]);
 
     Product::create([
@@ -261,7 +261,7 @@ class ProductSeeder extends Seeder
         'price' => 5,
         'stock' => 500,
         'description' => 'Refresh this page',
-        'image' => 'placeholder.jpg',
+        'image' => 'de-ja-vu.jpg',
     ]);
 
     Product::create([
@@ -270,7 +270,7 @@ class ProductSeeder extends Seeder
         'price' => 99,
         'stock' => 200,
         'description' => 'You will be successful and happy',
-        'image' => 'placeholder.jpg',
+        'image' => 'false-hope.jpg',
     ]);
 
     Product::create([
@@ -279,7 +279,7 @@ class ProductSeeder extends Seeder
         'price' => 1,
         'stock' => 900,
         'description' => 'Basically free',
-        'image' => 'placeholder.jpg',
+        'image' => 'cringe.png',
     ]);
 
     Product::create([
@@ -288,7 +288,7 @@ class ProductSeeder extends Seeder
         'price' => 100,
         'stock' => 500,
         'description' => 'Order now! Now you have it.',
-        'image' => 'placeholder.jpg',
+        'image' => '12000-xp.jpg',
     ]);
 
     Product::create([
@@ -297,7 +297,7 @@ class ProductSeeder extends Seeder
         'price' => 350,
         'stock' => 100,
         'description' => '1 of 10 very useful powers, really!',
-        'image' => 'placeholder.jpg',
+        'image' => 'mystery-superpower.jpg',
     ]);
 
     }

@@ -57,7 +57,7 @@ export default function ProductPage({
                 <div className="overflow-hidden rounded bg-sage-light">
                     {product.image ? (
                         <img
-                            src={product.image?.startsWith('/') ? product.image : `/${product.image}`}
+                            src={product.image?.startsWith('/') ? product.image : `/storage/images/${product.image}`}
                             alt={product.name}
                             className="aspect-square h-full w-full object-cover"
                         />

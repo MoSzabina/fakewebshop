@@ -35,7 +35,7 @@ interface Order {
     id: number
     user_id: number
     status: string
-    total_price: string
+    totalprice: string
     shipping: string
     created_at: string
     user: User
@@ -127,7 +127,7 @@ export default function Orders({
                                     </td>
 
                                     <td>
-                                        €{Number(order.total_price).toFixed(2)}
+                                        €{Number(order.totalprice).toFixed(2)}
                                     </td>
 
                                     <td>
@@ -190,7 +190,7 @@ export default function Orders({
                                                         <p>
                                                             Total:
                                                             {Number(
-                                                                order.total_price
+                                                                order.totalprice
                                                             ).toFixed(2)}
                                                         </p>
                                                     </div>

@@ -101,7 +101,7 @@ export default function Cart({ cart }: CartProps) {
                                     <div className="flex size-24 shrink-0 items-center justify-center overflow-hidden rounded bg-sage-light">
                                         {item.product.image ? (
                                             <img
-                                                src={item.product.image}
+                                                src={`/storage/images/${item.product.image}`}
                                                 alt={item.product.name}
                                                 className="h-full w-full object-cover"
                                             />

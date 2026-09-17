@@ -35,7 +35,7 @@ interface Order {
     id: number;
     created_at: string;
     status: string;
-    total_price: string;
+    totalprice: string;
     items: OrderItem[];
 }
 
@@ -263,7 +263,7 @@ export default function Profile({
                             <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4">
                                 {orders.flatMap((order) => order.items.map((item) => (<div key={`${order.id}-${item.id}`}>
                                     <div className="aspect-square overflow-hidden rounded bg-sage-light">
-                                        {item.product.image ? (<img src={item.product.image.startsWith('/') ? item.product.image : `/${item.product.image}`} alt={item.product.name} className="h-full w-full object-cover" />) : (<div className="flex h-full items-center justify-center text-[11px] font-medium tracking-[0.08em] text-sage">
+                                        {item.product.image ? (<img src={item.product.image.startsWith('/') ? item.product.image : `/storage/images/${item.product.image}`} alt={item.product.name} className="h-full w-full object-cover" />) : (<div className="flex h-full items-center justify-center text-[11px] font-medium tracking-[0.08em] text-sage">
                                             PRODUCT IMAGE </div>)}
                                     </div>
                                     <div className="mt-2">
@@ -317,7 +317,7 @@ export default function Profile({
                                         </span>
 
                                         <span className="text-[13px] text-ink md:text-right">
-                                            {order.total_price}
+                                            {order.totalprice}
                                         </span>
                                     </div>
                                 ))}

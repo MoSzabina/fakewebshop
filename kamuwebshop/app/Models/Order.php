@@ -14,7 +14,7 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'status',
-        'total_price',
+        'totalprice',
         'shipping',
     ];
 
@@ -22,7 +22,7 @@ class Order extends Model
     {
         return [
             'status' => OrderStatus::class,
-            'total_price' => 'decimal:2',
+            'totalprice' => 'decimal:2',
         ];
     }
 
