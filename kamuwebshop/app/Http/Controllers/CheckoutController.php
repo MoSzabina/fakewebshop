@@ -36,6 +36,7 @@ class CheckoutController extends Controller
             'cart' => $cart,
             'total' => number_format($total, 2, '.', ''),
             'creditBalance' => $creditBalance,
+            'orderCompleted' => false,
         ]);
     }
 
@@ -55,7 +56,7 @@ class CheckoutController extends Controller
             return redirect()->route('cart');
         }
 
-        $order = DB::transaction(function () use ($cart, $validated, $user) {
+        DB::transaction(function () use ($cart, $validated, $user) {
             $total = 0;
 
             foreach ($cart->items as $item) {
@@ -98,10 +99,13 @@ class CheckoutController extends Controller
             ]);
 
             $cart->items()->delete();
-
-            return $order;
         });
 
-        return redirect()->route('profile.edit');
+        return Inertia::render('checkout', [
+            'cart' => ['items' => []],
+            'total' => '0.00',
+            'creditBalance' => $user->creditTransactions()->sum('amount'),
+            'orderCompleted' => true,
+        ]);
     }
 }

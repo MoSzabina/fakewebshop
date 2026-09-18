@@ -1,7 +1,8 @@
-import { Link, useForm } from '@inertiajs/react';
-
+import { Link, router, useForm } from '@inertiajs/react';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { useTranslations } from '@/hooks/useTranslation';
+import { useState } from 'react';
 
 interface Category {
     id: number;
@@ -36,7 +37,7 @@ interface CheckoutProps {
 
 export default function Checkout({ cart, total, creditBalance }: CheckoutProps) {
     const { __ } = useTranslations();
-
+    const [showOrderComplete, setShowOrderComplete] = useState(false);
     const { data, setData, post, processing, errors } = useForm({
         shipping: '',
     });
@@ -47,7 +48,11 @@ export default function Checkout({ cart, total, creditBalance }: CheckoutProps) 
     const submit = (e: React.SubmitEvent) => {
         e.preventDefault();
 
-        post('/checkout');
+        post('/checkout', {
+            onSuccess: () => {
+                setShowOrderComplete(true);
+            },
+        });
     };
 
     return (
@@ -151,6 +156,39 @@ export default function Checkout({ cart, total, creditBalance }: CheckoutProps) 
                     </div>
                 </aside>
             </div>
+            {showOrderComplete && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-4">
+                    <Alert
+                        variant="success"
+                        className="max-w-md bg-white p-8 shadow-xl"
+                    >
+                        <AlertTitle className="text-xl">
+                            {__('Thank you for (not) buying!')}
+                        </AlertTitle>
+
+                        <AlertDescription className="mb-6">
+                            {__('Your order has been successfully placed.')}
+                        </AlertDescription>
+
+                        <div className="flex gap-3">
+                            <Button
+                                type="button"
+                                onClick={() => router.visit('/profile')}
+                            >
+                                {__('Go to profile')}
+                            </Button>
+
+                            <Button
+                                type="button"
+                                variant="secondary"
+                                onClick={() => router.visit('/products')}
+                            >
+                                {__('Continue shopping')}
+                            </Button>
+                        </div>
+                    </Alert>
+                </div>
+            )}
         </section>
     );
 }
