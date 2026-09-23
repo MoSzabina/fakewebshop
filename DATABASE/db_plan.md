@@ -31,6 +31,7 @@ The system allows both registered customers and guests to browse products, manag
 - price DECIMAL(10,2)
 - stock INT
 - image VARCHAR(255)
+- slug VARCHAR(255)
 
 
 ## Cart
@@ -54,7 +55,7 @@ The system allows both registered customers and guests to browse products, manag
 - customer_name VARCHAR(100)
 - customer_email VARCHAR(255)
 - shipping_user VARCHAR(255) 
-- total_price DECIMAL(10,2)
+- totalprice DECIMAL(10,2)
 - status VARCHAR(30)
 
 
@@ -97,6 +98,7 @@ erDiagram
         DECIMAL price
         INT stock
         VARCHAR image
+        VARCHAR slug
     }
 
     CART {
@@ -117,7 +119,7 @@ erDiagram
         VARCHAR customer_name
         VARCHAR customer_email
         VARCHAR shipping_user
-        DECIMAL total_price
+        DECIMAL totalprice
         VARCHAR status
     }
 
