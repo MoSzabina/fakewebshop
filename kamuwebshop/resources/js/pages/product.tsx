@@ -105,7 +105,7 @@ export default function ProductPage({
                         {__('This might be interesting for you')}
                     </SectionLabel>
 
-                    <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-3">
                         {relatedProducts.map((relatedProduct) => (
                             <ProductCard
                                 key={relatedProduct.id}

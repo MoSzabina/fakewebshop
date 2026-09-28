@@ -127,7 +127,7 @@ export default function Orders({
                                     </td>
 
                                     <td>
-                                        €{Number(order.totalprice).toFixed(2)}
+                                        {Number(order.totalprice).toFixed(2)}
                                     </td>
 
                                     <td>
@@ -179,7 +179,7 @@ export default function Orders({
                                                                     {item.product.name}
                                                                     {' × '}
                                                                     {item.quantity}
-                                                                    {' — €'}
+                                                                    {' — '}
                                                                     {Number(
                                                                         item.unitprice
                                                                     ).toFixed(2)}

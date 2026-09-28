@@ -102,7 +102,7 @@ export default function Products({ products }: ProductsProps) {
                                     <td>{product.name}</td>
                                     <td>{product.category?.name ?? '—'}</td>
                                     <td className="text-right">
-                                        €{Number(product.price).toFixed(2)}
+                                        {Number(product.price).toFixed(2)}
                                     </td>
                                     <td className="text-right">{product.stock}</td>
                                     <td>
