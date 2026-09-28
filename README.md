@@ -250,5 +250,5 @@ The main reason for creating the project is to gain practical experience by desi
 <figure>
     <img src="DESIGN/Screenshots/admin_dashboard_overview-lightmode-desktop.png"
          alt="Admin dashboard overview - lightmode, desktop">
-    <figcaption>Admin dashboard - darkmode, desktop</figcaption>
+    <figcaption>Admin dashboard - lightmode, desktop</figcaption>
 </figure>
