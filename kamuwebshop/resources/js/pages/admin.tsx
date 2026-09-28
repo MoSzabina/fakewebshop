@@ -67,7 +67,7 @@ export default function Admin({
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <StatCard
                         label="Revenue"
-                        value={`€${stats.revenue.toLocaleString('en-US', {
+                        value={`${stats.revenue.toLocaleString('en-US', {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
                         })}`}
@@ -89,7 +89,7 @@ export default function Admin({
 
                     <StatCard
                         label="Avg. Order"
-                        value={`€${stats.averageOrder.toLocaleString('en-US', {
+                        value={`${stats.averageOrder.toLocaleString('en-US', {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
                         })}`}

@@ -1,6 +1,6 @@
 import { Link, router, usePage } from '@inertiajs/react';
 import { LogOut, Menu, ShoppingBag, User, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { useTranslations } from '@/hooks/useTranslation';
@@ -15,19 +15,21 @@ export function AppHeader() {
     const isLoggedIn = !!auth.user;
     const isAdmin = !!auth.user?.is_admin;
 
-    const [darkMode, setDarkMode] = useState(
-        document.documentElement.classList.contains('dark')
-    )
+    const [darkMode, setDarkMode] = useState(false);
+
+    useEffect(() => {
+        setDarkMode(document.documentElement.classList.contains('dark'));
+    }, []);
 
     const toggleDarkMode = () => {
-        document.documentElement.classList.toggle('dark')
-        setDarkMode(document.documentElement.classList.contains('dark'))
-    }
+        document.documentElement.classList.toggle('dark');
+        setDarkMode(document.documentElement.classList.contains('dark'));
+    };
 
     const handleLanguageChange = (newLocale: 'en' | 'hu') => {
         if (newLocale === locale) {
-return;
-}
+            return;
+        }
 
         router.post(
             '/locale',
@@ -325,8 +327,8 @@ return;
                                     type="button"
                                     onClick={() => handleLanguageChange('en')}
                                     className={`px-1 py-0.5 transition-colors ${locale === 'en'
-                                            ? 'text-ink'
-                                            : 'text-[#A8A29E] hover:text-ink-mid'
+                                        ? 'text-ink'
+                                        : 'text-[#A8A29E] hover:text-ink-mid'
                                         }`}
                                 >
                                     EN
@@ -338,8 +340,8 @@ return;
                                     type="button"
                                     onClick={() => handleLanguageChange('hu')}
                                     className={`px-1 py-0.5 transition-colors ${locale === 'hu'
-                                            ? 'text-ink'
-                                            : 'text-[#A8A29E] hover:text-ink-mid'
+                                        ? 'text-ink'
+                                        : 'text-[#A8A29E] hover:text-ink-mid'
                                         }`}
                                 >
                                     HU
