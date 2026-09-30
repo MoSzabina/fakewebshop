@@ -28,7 +28,8 @@ trait ProfileValidationRules
      */
     protected function nameRules(): array
     {
-        return ['required', 'string', 'max:50'];
+        return ['required', 'string', 'max:50',
+        Rule::unique(User::class, 'username'),];
     }
 
     /**

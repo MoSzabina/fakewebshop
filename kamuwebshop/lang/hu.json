@@ -285,8 +285,8 @@
     "Privacy Policy": "Adatvédelem",
     "Contact": "Kapcsolat",
 
-    "It's fake!": "Ez kamu!",
-    "It looks like a webshop. But you don't spend real money here. You don't need to give any real information. You place an order, but you don't get anything. Just the experience.": "Olyan, mint egy webshop. Csak itt nem költesz igazi pénzt. Nem kell semmilyen valódi adatot megadni. Rendelsz, és cserébe nem kapsz semmit. Csak az élményt.",
+    "It’s fake!": "Ez kamu!",
+    "It looks like a webshop. But you don’t spend real money here. You don’t need to give any real information. You place an order, but you don’t get anything. Just the experience.": "Olyan, mint egy webshop. Csak itt nem költesz igazi pénzt. Nem kell semmilyen valódi adatot megadni. Rendelsz, és cserébe nem kapsz semmit. Csak az élményt.",
     "How does it work?": "Hogy működik?",
     "You can browse and add products to your cart without logging in. Only registered users can place an order!": "Belépés nélkül is nézelődhetsz, és rakhatsz kosárba termékeket. Rendelés leadása csak regisztrált felhasználóknak elérhető!",
     "You can add products to your cart.": "Kosárba rakhatsz termékeket.",
@@ -482,5 +482,10 @@
     "Thank you for (not) buying!": "Köszönjük a (nem) vásárlást!",
     "Your order has been successfully placed.": "Sikeresen leadtad a rendelést.",
     "Go to profile": "Profilom",
-    "Continue shopping": "Folytatom a vásárlást"
+    "Continue shopping": "Folytatom a vásárlást",
+    "Send an email": "Küldj egy emailt",
+    "Name": "Név",
+    "Message": "Üzenet",
+    "Send message": "Üzenet küldése",
+    "Message sent successfully.": "Az üzenet sikeresen elküldve."
 }

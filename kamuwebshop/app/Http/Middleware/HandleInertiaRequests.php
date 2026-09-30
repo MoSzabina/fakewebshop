@@ -56,7 +56,7 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
 
-            'locale' => App::getLocale(),
+            'locale' => Session::get('locale', config('app.locale')),
             'translations' => $getTranslations(),
             'cartCount' => $cartCount,
         ];
