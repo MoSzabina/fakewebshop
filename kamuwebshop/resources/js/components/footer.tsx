@@ -50,12 +50,12 @@ export function Footer() {
                         </a>
 
                         <a
-                            href="https://www.linkedin.com/in/oreszabina"
+                            href="https://github.com/MoSzabina"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-[14px] text-ink-mid transition-colors duration-150 hover:text-ink"
                         >
-                            LinkedIn
+                            GitHub
                         </a>
                     </div>
 
